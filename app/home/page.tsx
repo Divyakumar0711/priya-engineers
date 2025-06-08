@@ -1,69 +1,100 @@
+"use client";
 import HeroSection from "@/components/HeroSection";
+import Image from "next/image";
 import React from "react";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { Cinzel } from "next/font/google";
+const cinzelFont = Cinzel({
+  weight: "700",
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+});
 
 function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <HeroSection/>
+      <HeroSection />
+
       {/* Welcome Section - Like Gamma Gears "18 Year Experience" */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 lg:py-0 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="bg-blue-600 text-white p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-6">
-                  Welcome to Priya Engineers
-                </h3>
-                <p className="text-blue-100 leading-relaxed">
-                  Priya Engineers where revolution meets accuracy in the
-                  dominion of industrialized engineering. As a leading
-                  engineering manufacturer and supplier of high-quality
-                  mechanical components, Priya Engineers specialize in a wide
-                  range of industrial engineering products designed to fulfil
-                  the diverse requirements of several industries. Priya
-                  Engineers expertise extends across the manufacturing of
-                  precision engineering products, measuring instruments,
-                  automation systems and more. All of these our engineering
-                  manufacturers products are comprehensively used for being
-                  strong, corrosion resistant, stable performance, capability to
-                  tolerate load, ease to function and dimensionally correct.
-                </p>
-              </div>
-            </div>
-            <div>
-              <div className="mb-8">
-                <div className="text-8xl lg:text-9xl font-bold text-blue-100 leading-none">
-                  25
-                </div>
-                <h2 className="text-4xl font-bold text-gray-900 -mt-4">
-                  Year Experience In This Industry
+          <div className="grid grid-cols-1 lg:grid-cols-2  lg:gap-16 items-center">
+            <div className="relative flex flex-col items-center space-y-4">
+              <Image
+                src="/assets/images/25_years_logo.png"
+                alt="25_logo.png"
+                width={500}
+                height={500}
+                className="w-60 sm:w-72 md:w-[400px] lg:w-[500px] h-auto"
+              />
+              <div className="mb-4">
+                <h2
+                  className={`lg:text-4xl font-bold text-gray-900 tracking-wider text-center ${cinzelFont.className}`}
+                >
+                  <span className="text-red-600">YEARS</span>{" "}
+                  <span className="text-black">OF</span>{" "}
+                  <span className="text-blue-600">EXCELLENCE</span>
                 </h2>
               </div>
+            </div>
 
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Our engineers are committed to deliver optimal performance,
-                durability, and efficiency. Priya Engineers understand the
-                significant role these components work in the smooth function of
-                machinery and industrial procedures, which is why Priya
-                Engineers keep the latest technologies and strict quality
-                control measures in our manufacturing process.
-              </p>
+            {/* Content */}
+            <div className="flex items-center">
+              <ContainerScroll
+                titleComponent={
+                  <>
+                    <h1 className="text-2xl font-semibold text-black dark:text-white">
+                      Welcome to <br />
+                      <span
+                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-red-600 ${cinzelFont.className}`}
+                      >
+                        PRIYA
+                      </span>
+                      <br />
+                      <span
+                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-blue-600 ${cinzelFont.className}`}
+                      >
+                        ENGINEERS
+                      </span>
+                    </h1>
+                  </>
+                }
+              >
+                <div
+                  className="max-h-full overflow-y-auto px-3 text-left scrollbar-hide"
+                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                >
+                  <p className="text-lg text-black mb-6 leading-relaxed">
+                    Our engineers are committed to deliver optimal performance,
+                    durability, and efficiency. Priya Engineers understand the
+                    significant role these components work in the smooth
+                    function of machinery and industrial procedures, which is
+                    why Priya Engineers keep the latest technologies and strict
+                    quality control measures in our manufacturing process.
+                  </p>
 
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                With a dedicated team of engineers manufacturing engineers and
-                advanced manufacturing facilities, Priya Engineers confirm that
-                engineers manufacturers products with highest standards of
-                excellence and consistency.
-              </p>
+                  <p className="text-lg text-black mb-8 leading-relaxed">
+                    With a dedicated team of engineers manufacturing engineers
+                    and advanced manufacturing facilities, Priya Engineers
+                    confirm that engineers manufacturers products with highest
+                    standards of excellence and consistency.
+                  </p>
 
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Priya Engineers innovative engineering products are durable with
-                an enduring functional life. Our company is firmly followed to
-                certain compulsory engineering inspection and production
-                methods, which frequently contribute us success in the business
-                to offer excellent products that meet the precise requirements
-                of our clients, wherever they are located.
-              </p>
+                  <p className="text-lg text-black mb-8 leading-relaxed">
+                    With a dedicated team of engineers manufacturing engineers
+                    and advanced manufacturing facilities, Priya Engineers
+                    confirm that engineers manufacturers products with highest
+                    standards of excellence and consistency.
+                  </p>
+
+                  <p className="text-lg text-black mb-8 leading-relaxed">
+                    With a dedicated team of engineers manufacturing engineers
+                    and advanced manufacturing facilities, Priya Engineers
+                    confirm that engineers manufacturers products with highest
+                    standards of excellence and consistency.
+                  </p>
+                </div>
+              </ContainerScroll>
             </div>
           </div>
         </div>
