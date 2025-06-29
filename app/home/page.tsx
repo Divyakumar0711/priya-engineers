@@ -3,19 +3,54 @@ import HeroSection from "@/components/HeroSection";
 import Image from "next/image";
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Card from "@/components/ui/card";
 import { Cinzel } from "next/font/google";
+
+import LayoutGrid from "@/components/ui/layout-grid";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 const cinzelFont = Cinzel({
   weight: "700",
   subsets: ["latin"],
   variable: "--font-cinzel",
 });
 
+const testimonials = [
+  {
+    quote:
+      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+    name: "Charles Dickens",
+    title: "A Tale of Two Cities",
+  },
+  {
+    quote:
+      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+    name: "William Shakespeare",
+    title: "Hamlet",
+  },
+  {
+    quote: "All that we see or seem is but a dream within a dream.",
+    name: "Edgar Allan Poe",
+    title: "A Dream Within a Dream",
+  },
+  {
+    quote:
+      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+    name: "Jane Austen",
+    title: "Pride and Prejudice",
+  },
+  {
+    quote:
+      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+    name: "Herman Melville",
+    title: "Moby-Dick",
+  },
+];
 function Home() {
   return (
     <div className="min-h-screen bg-white">
       <HeroSection />
 
-      {/* Welcome Section - Like Gamma Gears "18 Year Experience" */}
+      {/* Welcome Section - Like Priya engineers "25 Year Experience" */}
       <section className="py-20 lg:py-0 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2  lg:gap-16 items-center">
@@ -101,192 +136,139 @@ function Home() {
       </section>
 
       {/* What We Do - 4 Main Products */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              What We Do
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Priya Engineers specializes in four main categories of precision
-              engineering products
-            </p>
+      <section className="py-20 bg-gray-100">
+        <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative text-center py-20">
+            <h3
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+               text-white text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+            >
+              Products
+            </h3>
+
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+              What We Deliver
+            </h1>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-blue-50 rounded-full p-8 mb-6 group-hover:bg-blue-100 transition-colors">
-                {/* <Cog className="h-16 w-16 text-blue-600 mx-auto" /> */}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Precision Tools
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                High-precision engineering tools designed for accuracy and
-                reliability in industrial applications.
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-orange-50 rounded-full p-8 mb-6 group-hover:bg-orange-100 transition-colors">
-                {/* <Gauge className="h-16 w-16 text-orange-600 mx-auto" /> */}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Measuring Instruments
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Advanced measuring and testing equipment for quality control and
-                precision measurement.
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-green-50 rounded-full p-8 mb-6 group-hover:bg-green-100 transition-colors">
-                {/* <Wrench className="h-16 w-16 text-green-600 mx-auto" /> */}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Industrial Equipment
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Robust industrial machinery and equipment for manufacturing and
-                production processes.
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-purple-50 rounded-full p-8 mb-6 group-hover:bg-purple-100 transition-colors">
-                {/* <Settings className="h-16 w-16 text-purple-600 mx-auto" /> */}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Automation Systems
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                State-of-the-art automation solutions for modern manufacturing
-                and industrial processes.
-              </p>
-            </div>
+          <Card />
+          <div className="flex justify-center mt-12">
+            <button className="bg-blue-600 text-white text-lg px-10 py-4 rounded-full hover:bg-red-600 transition">
+              More Products
+            </button>
           </div>
         </div>
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Industries We Serve
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our engineering solutions serve diverse industries across India
-              and beyond
-            </p>
+          <div className="relative text-center py-20">
+            <h3
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+               text-gray-100 text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+            >
+              Industires
+            </h3>
+
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+              Who We Serve
+            </h1>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            <div className="text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                {/* <Factory className="h-12 w-12 text-blue-600 mx-auto mb-3" /> */}
-                <h4 className="font-semibold text-gray-900">Manufacturing</h4>
-              </div>
-            </div>
+          <LayoutGrid />
+        </div>
+      </section>
 
-            <div className="text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                {/* <Car className="h-12 w-12 text-blue-600 mx-auto mb-3" /> */}
-                <h4 className="font-semibold text-gray-900">Automotive</h4>
-              </div>
-            </div>
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-100">
+        <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative text-center py-20 ">
+            <h3
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+               text-white text-[2.1rem]  md:text-[7rem] lg:text-[10rem]
+               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+            >
+              Testimonials
+            </h3>
 
-            <div className="text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                {/* <Plane className="h-12 w-12 text-blue-600 mx-auto mb-3" /> */}
-                <h4 className="font-semibold text-gray-900">Aerospace</h4>
-              </div>
-            </div>
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+              What our clients say
+            </h1>
+          </div>
 
-            <div className="text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                {/* <Zap className="h-12 w-12 text-blue-600 mx-auto mb-3" /> */}
-                <h4 className="font-semibold text-gray-900">Energy</h4>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                {/* <Building className="h-12 w-12 text-blue-600 mx-auto mb-3" /> */}
-                <h4 className="font-semibold text-gray-900">Construction</h4>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                {/* <Hammer className="h-12 w-12 text-blue-600 mx-auto mb-3" /> */}
-                <h4 className="font-semibold text-gray-900">Heavy Industry</h4>
-              </div>
-            </div>
+          <div
+            className="mt-[2
+          0rem] p-30 rounded-md flex flex-col antialiased dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
+          >
+            <InfiniteMovingCards
+              items={testimonials}
+              direction="right"
+              speed="slow"
+            />
           </div>
         </div>
       </section>
 
       {/* Contact Us */}
-      <section className="py-20 bg-blue-600 text-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6">Get In Touch With Us</h2>
-              <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-                Ready to discuss your engineering needs? Contact our expert team
-                today for personalized solutions and competitive quotes.
-              </p>
+          <div className="relative text-center py-20">
+            <h3
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+               text-gray-100 text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+            >
+              Contact
+            </h3>
 
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center">
-                  {/* <Phone className="h-6 w-6 text-orange-400 mr-4" /> */}
-                  <span className="text-lg">+91-9825790413</span>
-                </div>
-                <div className="flex items-center">
-                  {/* <Mail className="h-6 w-6 text-orange-400 mr-4" /> */}
-                  <span className="text-lg">priyaengineersand@gmail.com</span>
-                </div>
-                <div className="flex items-start">
-                  {/* <MapPin className="h-6 w-6 text-orange-400 mr-4 mt-1" /> */}
-                  <span className="text-lg">Gujarat, India</span>
-                </div>
-              </div>
-
-              {/* <Link href="/contact">
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-md">
-                  Contact With Us
-                </Button>
-              </Link> */}
-            </div>
-
-            <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-2xl font-bold mb-6">Quick Contact Form</h3>
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-md bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-md bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200"
-                />
-                {/* <textarea 
-                  placeholder="Your Message" 
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-md bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200"
-                ></textarea>
-                <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 font-semibold">
-                  Send Message
-                </Button> */}
-              </form>
-            </div>
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+              Get in Touch With Us
+            </h1>
           </div>
+
+          <form className="space-y-6">
+            <div>
+              <label className="block text-black font-medium mb-2 ">
+                Name
+              </label>
+              <input
+                type="text"
+                placeholder="Your name"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-black font-medium mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-black font-medium mb-2">
+                Message
+              </label>
+              <textarea
+                rows={5}
+                placeholder="Your message"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white font-medium py-3 rounded-lg hover:bg-red-700 transition duration-300"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </section>
+
     </div>
   );
 }
