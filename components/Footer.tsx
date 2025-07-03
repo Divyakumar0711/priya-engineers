@@ -15,7 +15,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#03254c] text-white pt-12 pb-6 px-6 md:px-20">
+    <footer className="bg-blue-600 text-white pt-12 pb-6 px-6 md:px-20">
       <div className="grid md:grid-cols-3 gap-12 border-b border-white/20 pb-10">
         {/* Contact Info */}
         <div>
@@ -26,9 +26,11 @@ const Footer = () => {
             <div className="text-sm">
               <p className="font-semibold">Office Address</p>
               <p>
-                19, Swaminarayan Complex <br />
-                Rabari Colony cross road <br />
-                Ahmedabad – 380 026. <br />
+                19 Swaminarayan complex, <br />
+                near Mangaldeep Party Plot, Amraiwadi,
+                <br />
+                Ahmedabad – 382415,
+                <br />
                 Gujarat – India
               </p>
             </div>
@@ -62,7 +64,7 @@ const Footer = () => {
         </div>
 
         {/* Product Links */}
-         <div>
+        <div>
           <h2 className="text-lg font-bold mb-4">Product Link</h2>
           <div className="grid grid-cols-2 gap-y-2 text-sm">
             {[
@@ -102,8 +104,12 @@ const Footer = () => {
             <SocialIcon icon={<Youtube size={20} />} bg="bg-red-600" text="text-white" link="#" />
             <SocialIcon icon={<Linkedin size={20} />} bg="bg-blue-700" text="text-white" link="#" />
             <SocialIcon icon={<Pinterest size={20} />} bg="bg-red-500" text="text-white" link="#" /> */}
-            <SocialIcon icon={<Home size={20} />} bg="bg-gray-500" text="text-white" link="#" />
-          
+            <SocialIcon
+              icon={<Home size={20} />}
+              bg="bg-gray-500"
+              text="text-white"
+              link="#"
+            />
           </div>
         </div>
       </div>
