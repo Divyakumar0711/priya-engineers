@@ -17,6 +17,7 @@ const cinzelFont = Cinzel({
   variable: "--font-cinzel",
 });
 
+// ✅ Updated navigation with links for all dropdown items
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
@@ -24,20 +25,23 @@ const navigation = [
     name: "Products",
     hasDropdown: true,
     items: [
-      "Gearbox",
-      "Motor",
-      "Coupling",
-      "Bearing",
-      "Chain",
-      "Pulley",
-      "Sprocket",
-      "Conveyor",
+      { name: "Gearbox", href: "/products/gearbox" },
+      { name: "Motor", href: "/products/motor" },
+      { name: "Coupling", href: "/products/coupling" },
+      { name: "Bearing", href: "/products/bearing" },
+      { name: "Chain", href: "/products/chain" },
+      { name: "Pulley", href: "/products/pulley" },
+      { name: "Sprocket", href: "/products/sprocket" },
+      { name: "Conveyor", href: "/products/conveyor" },
     ],
   },
   {
     name: "Services",
     hasDropdown: true,
-    items: ["Installation", "Maintenance"],
+    items: [
+      { name: "Installation", href: "/services/installation" },
+      { name: "Maintenance", href: "/services/maintenance" },
+    ],
   },
   { name: "Contact Us", href: "/contact" },
 ];
@@ -67,14 +71,14 @@ function Header() {
           </div>
         </Link>
 
-        {/* Logo & Menu Icon */}
+        {/* Menu Icon for Mobile */}
         <div className="flex items-center gap-4 md:hidden">
           <button onClick={() => setIsMobileMenuOpen(true)}>
             <Menu className="w-7 h-7 text-black" />
           </button>
         </div>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 text-xl font-medium">
           {navigation.map((item) =>
             item.hasDropdown ? (
@@ -93,16 +97,14 @@ function Header() {
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-blue-800  w-76 rounded-md shadow-lg mt-2">
+                  <DropdownMenuContent className="bg-blue-800 w-76 rounded-md shadow-lg mt-2">
                     {item.items?.map((subItem) => (
-                      <DropdownMenuItem key={subItem} asChild>
+                      <DropdownMenuItem key={subItem.name} asChild>
                         <Link
-                          href={`/${item.name.toLowerCase()}/${subItem
-                            .toLowerCase()
-                            .replace(/\s+/g, "-")}`}
-                          className="w-full px-6 py-3 text-xl text-white  "
+                          href={subItem.href}
+                          className="w-full px-6 py-3 text-xl text-white"
                         >
-                          {subItem}
+                          {subItem.name}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -110,23 +112,21 @@ function Header() {
                 </DropdownMenu>
               </div>
             ) : (
-              item.href && (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="hover:text-blue-600"
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                href={item.href}
+                className="hover:text-blue-600"
+              >
+                {item.name}
+              </Link>
             )
           )}
         </nav>
 
-        {/* Mobile navigation */}
+        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="fixed top-0 right-0 w-full/2 h-full bg-blue-900 z-50 text-white shadow-lg transition-transform duration-300 md:hidden">
-            {/* Header */}
+          <div className="fixed top-0 right-0 w-full h-full bg-blue-900 z-50 text-white shadow-lg transition-transform duration-300 md:hidden">
+            {/* Mobile Header */}
             <div className="flex justify-between items-center p-4 border-b border-white">
               <h1 className={`text-xl font-bold ${cinzelFont.className}`}>
                 <span className="text-red-500">PRIYA</span>{" "}
@@ -137,7 +137,7 @@ function Header() {
               </button>
             </div>
 
-            {/* Nav Items */}
+            {/* Mobile Menu Items */}
             <div className="flex flex-col gap-4 p-4 text-lg">
               {navigation.map((item) => {
                 const hasSubmenu = item.hasDropdown && item.items?.length;
@@ -158,7 +158,17 @@ function Header() {
                       }}
                       className="flex justify-between items-center w-full text-left hover:text-red-400 pr-2"
                     >
-                      {item.name}
+                      {hasSubmenu ? (
+                        <span className="cursor-pointer">{item.name}</span>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="hover:text-red-400 w-full text-left"
+                        >
+                          {item.name}
+                        </Link>
+                      )}
                       {hasSubmenu && (
                         <span className="ml-2 mr-4">
                           {isOpen ? (
@@ -172,16 +182,14 @@ function Header() {
 
                     {hasSubmenu && isOpen && (
                       <div className="ml-4 mt-2 flex flex-col gap-2">
-                        {item.items.map((subItem: string) => (
+                        {item.items.map((subItem) => (
                           <Link
-                            key={subItem}
-                            href={`/${item.name.toLowerCase()}/${subItem
-                              .toLowerCase()
-                              .replace(/\s+/g, "-")}`}
+                            key={subItem.name}
+                            href={subItem.href}
                             className="text-white hover:text-red-400 text-base block"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
-                            {subItem}
+                            {subItem.name}
                           </Link>
                         ))}
                       </div>

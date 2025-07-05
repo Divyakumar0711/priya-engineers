@@ -138,7 +138,7 @@ export default function ContactPage() {
       <section className="w-full">
         <iframe
           title="Priya Engineers Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5067182821394!2d72.63199098067543!3d23.00515992551846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e866b8fffffff%3A0x409f52ad1a14fd72!2sDurga%20Plast!5e0!3m2!1sen!2sca!4v1751518046002!5m2!1sen!2sca"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7345.2895049714525!2d72.63185714228902!3d23.000087316757963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e876f8f71a487%3A0x47bfc9d8b0234ec8!2sPriya%20Engineers!5e0!3m2!1sen!2sca!4v1751714877400!5m2!1sen!2sca"
           width="100%"
           height="500"
           style={{ border: 0 }}
