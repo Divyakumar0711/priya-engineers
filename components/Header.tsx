@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Cinzel } from "next/font/google";
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
+import productData from "@/data/productData";
 
 import {
   DropdownMenu,
@@ -24,15 +25,25 @@ const navigation = [
   {
     name: "Products",
     hasDropdown: true,
+    // items: [
+    //   { name: "All Products", href: "/products" },
+    //   { name: "Gearbox", href: "/products/subproduct" },
+    //   { name: "Motor", href: "/products/motor" },
+    //   { name: "Coupling", href: "/products/coupling" },
+    //   { name: "Bearing", href: "/products/bearing" },
+    //   { name: "Chain", href: "/products/chain" },
+    //   { name: "Pulley", href: "/products/pulley" },
+    //   { name: "Sprocket", href: "/products/sprocket" },
+    //   { name: "Conveyor", href: "/products/conveyor" },
+    // ],
     items: [
-      { name: "Gearbox", href: "/products/gearbox" },
-      { name: "Motor", href: "/products/motor" },
-      { name: "Coupling", href: "/products/coupling" },
-      { name: "Bearing", href: "/products/bearing" },
-      { name: "Chain", href: "/products/chain" },
-      { name: "Pulley", href: "/products/pulley" },
-      { name: "Sprocket", href: "/products/sprocket" },
-      { name: "Conveyor", href: "/products/conveyor" },
+      { name: "All Products", href: "/products" },
+
+      // First 5 products as individual links
+      ...productData.slice(0, 5).map((product) => ({
+        name: product.name,
+        href: `/products/productDetails?productId=${product.id}`,
+      })),
     ],
   },
   {
