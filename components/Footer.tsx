@@ -1,29 +1,71 @@
 // components/Footer.tsx
 
-import {
-  Facebook,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-  Youtube,
-  Linkedin,
-  Instagram,
-  Home,
-  GanttChartSquare,
-} from "lucide-react";
+import Image from "next/image";
 
-const Footer = () => {
+const socialIcons = [
+  {
+    name: "Facebook",
+    icon: "/assets/icons/facebook.png",
+    link: "https://facebook.com",
+  },
+  {
+    name: "Twitter",
+    icon: "/assets/icons/twitter.png",
+    link: "https://twitter.com",
+  },
+  {
+    name: "Instagram",
+    icon: "/assets/icons/instagram.png",
+    link: "https://instagram.com",
+  },
+  {
+    name: "Linkedin",
+    icon: "/assets/icons/linkedin.png",
+    link: "https://linkedin.com",
+  },
+  {
+    name: "Map",
+    icon: "/assets/icons/google-maps.png",
+    link: "https://linkedin.com",
+  },
+  { name: "Phone", icon: "/assets/icons/call.png", link: "tel:+1234567890" },
+  {
+    name: "Mail",
+    icon: "/assets/icons/email.png",
+    link: "mailto:someone@example.com",
+  },
+  {
+    name: "Pinterest",
+    icon: "/assets/icons/pinterest.png",
+    link: "https://pinterest.com",
+  },
+  {
+    name: "Google",
+    icon: "/assets/icons/google.png",
+    link: "https://tiktok.com",
+  },
+];
+
+export default function Footer() {
   return (
-    <footer className="bg-blue-600 text-white pt-12 pb-6 px-6 md:px-20">
+    <footer className="bg-blue-900 text-white pt-12 pb-6 px-6 md:px-20">
       <div className="grid md:grid-cols-3 gap-12 border-b border-white/20 pb-10">
-        {/* Contact Info */}
+        {/* Contact Info Section */}
         <div>
-          <h2 className="text-lg font-bold mb-4">Get In Touch</h2>
+          <h2 className="text-lg font-bold mb-4 tracking-wide">Get In Touch</h2>
 
-          <div className="mb-4 flex gap-2">
-            <MapPin className="text-orange-500 mt-1" />
-            <div className="text-sm">
+          <div className="mb-4 flex gap-2 items-center">
+            {/* Replace with MapPin icon SVG or image if needed */}
+            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center ">
+              <Image
+                src={"/assets/icons/location-white.png"}
+                alt={"location"}
+                width={24}
+                height={24}
+                className="group-hover:invert transition duration-300"
+              />
+            </div>{" "}
+            <div className="text-sm tracking-wide">
               <p className="font-semibold">Office Address</p>
               <p>
                 19 Swaminarayan complex, <br />
@@ -36,37 +78,50 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mb-4 flex gap-2">
-            <Phone className="text-orange-500 mt-1" />
-            <div className="text-sm">
+          <div className="mb-4 flex gap-2 items-center">
+            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center ">
+              <Image
+                src={"/assets/icons/call-white.png"}
+                alt={"call"}
+                width={24}
+                height={24}
+                className="group-hover:invert transition duration-300"
+              />
+            </div>{" "}
+            <div className="text-sm tracking-wide">
               <p className="font-semibold">Phone Number</p>
-              <a href="tel:+919978611575" className="hover:text-red-500 block">
+              <a href="tel:+919978611575" className="hover:text-red-700 block">
                 +91 9825790413
               </a>
             </div>
           </div>
 
-          <div className="flex gap-2">
-            <Mail className="text-orange-500 mt-1" />
-            <div className="text-sm">
+          <div className="flex gap-2 items-center">
+            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center ">
+              <Image
+                src={"/assets/icons/mail-white.png"}
+                alt={"email"}
+                width={24}
+                height={24}
+                className="group-hover:invert transition duration-300"
+              />
+            </div>
+            <div className="text-sm tracking-wide">
               <p className="font-semibold">Email Address</p>
-              <p>
-                {" "}
-                <a
-                  href="mailto:gammagears@gmail.com"
-                  className="hover:text-red-500 block"
-                >
-                  priyaengineers@gmail.com
-                </a>
-              </p>
+              <a
+                href="mailto:priyaengineersahd@gmail.com"
+                className="hover:text-red-700 block"
+              >
+                priyaengineers@gmail.com
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Product Links */}
+        {/* Product Links Section */}
         <div>
-          <h2 className="text-lg font-bold mb-4">Product Link</h2>
-          <div className="grid grid-cols-2 gap-y-2 text-sm">
+          <h2 className="text-lg font-bold mb-4 tracking-wide">Product Link</h2>
+          <div className="grid grid-cols-2 gap-y-2 text-sm tracking-wide">
             {[
               "Worm Reduction Gearbox",
               "Gear Box Spares",
@@ -85,7 +140,7 @@ const Footer = () => {
               <a
                 key={product}
                 href="#"
-                className="hover:text-red-500 transition-colors"
+                className="hover:text-red-700 transition-colors"
               >
                 {product}
               </a>
@@ -93,23 +148,27 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Media Icons */}
+        {/* Social Media Icons Section */}
         <div>
-          <h2 className="text-lg font-bold mb-4">Social Media</h2>
-          <div className="flex flex-wrap gap-3">
-            {/* <SocialIcon icon={<Facebook size={20} />} bg="bg-white" text="text-blue-600" link="#" />
-            <SocialIcon icon={<Twitter size={20} />} bg="bg-black" text="text-white" link="#" />
-            <SocialIcon icon={<GanttChartSquare size={20} />} bg="bg-gray-400" text="text-black" link="#" />
-            <SocialIcon icon={<Instagram size={20} />} bg="bg-pink-600" text="text-white" link="#" />
-            <SocialIcon icon={<Youtube size={20} />} bg="bg-red-600" text="text-white" link="#" />
-            <SocialIcon icon={<Linkedin size={20} />} bg="bg-blue-700" text="text-white" link="#" />
-            <SocialIcon icon={<Pinterest size={20} />} bg="bg-red-500" text="text-white" link="#" /> */}
-            <SocialIcon
-              icon={<Home size={20} />}
-              bg="bg-gray-500"
-              text="text-white"
-              link="#"
-            />
+          <h2 className="text-lg font-bold mb-4 tracking-wide">Social Media</h2>
+          <div className="grid grid-cols-3 gap-y-3 w-60">
+            {socialIcons.map(({ icon, link, name }, index) => (
+              <a
+                key={index}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-12 h-12 bg-white rounded-sm flex items-center justify-center hover:bg-red-600 transition-all"
+              >
+                <Image
+                  src={icon}
+                  alt={name}
+                  width={24}
+                  height={24}
+                  className="group-hover:invert transition duration-300"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -119,25 +178,4 @@ const Footer = () => {
       </p>
     </footer>
   );
-};
-
-// Reusable icon wrapper
-type IconBoxProps = {
-  icon: React.ReactNode;
-  bg: string;
-  text: string;
-  link: string;
-};
-
-const SocialIcon = ({ icon, bg, text, link }: IconBoxProps) => (
-  <a
-    href={link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`${bg} ${text} p-2 rounded-sm w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform`}
-  >
-    {icon}
-  </a>
-);
-
-export default Footer;
+}

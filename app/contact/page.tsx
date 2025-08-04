@@ -1,4 +1,5 @@
 "use client";
+import CommonHeader from "@/components/CommonHeader";
 import React from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
@@ -6,23 +7,11 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section
-        className="relative py-16 bg-center bg-cover bg-no-repeat"
-        // style={{
-        //   backgroundImage:
-        //     "url('https://images.unsplash.com/photo-1711199694531-e982a79ea381?q=80&w=1932&auto=format&fit=crop')",
-        // }}
-      >
-        <div className="absolute inset-0 bg-red-600 " />
-        <div className="relative z-10 py-5 px-4">
-          <div className="container mx-auto text-center justify-center">
-            <h1 className="text-4xl md:text-6xl font-bold  text-white">
-              Contact Us
-            </h1>
-          </div>
-        </div>
-      </section>
-
+      <CommonHeader
+        title="Contact Us"
+        imageUrl="https://images.unsplash.com/photo-1711199694531-e982a79ea381?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+"
+      />
       <section className="py-20 bg-white px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Column - Info */}

@@ -66,9 +66,9 @@ function Home() {
                 <h2
                   className={`lg:text-4xl font-bold text-gray-900 tracking-wider text-center ${cinzelFont.className}`}
                 >
-                  <span className="text-red-600">YEARS</span>{" "}
+                  <span className="text-red-700">YEARS</span>{" "}
                   <span className="text-black">OF</span>{" "}
-                  <span className="text-blue-600">EXCELLENCE</span>
+                  <span className="text-blue-900">EXCELLENCE</span>
                 </h2>
               </div>
             </div>
@@ -78,16 +78,16 @@ function Home() {
               <ContainerScroll
                 titleComponent={
                   <>
-                    <h1 className="text-2xl font-semibold text-black dark:text-white">
+                    <h1 className="text-2xl font-semibold text-black dark:text-white tracking-wide">
                       Welcome to <br />
                       <span
-                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-red-600 ${cinzelFont.className}`}
+                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-red-700 ${cinzelFont.className}`}
                       >
                         PRIYA
                       </span>
                       <br />
                       <span
-                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-blue-600 ${cinzelFont.className}`}
+                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-blue-900 ${cinzelFont.className}`}
                       >
                         ENGINEERS
                       </span>
@@ -96,7 +96,7 @@ function Home() {
                 }
               >
                 <div
-                  className="max-h-full overflow-y-auto px-3 text-left scrollbar-hide"
+                  className="max-h-full overflow-y-auto px-3 text-left scrollbar-hide tracking-wide"
                   style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                   <p className="text-lg text-black mb-6 leading-relaxed">
@@ -138,7 +138,7 @@ function Home() {
       {/* What We Do - 4 Main Products */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative text-center py-20">
+          <div className="relative text-center py-20 tracking-wide">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
                text-white text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
@@ -147,13 +147,13 @@ function Home() {
               Products
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10">
               What We Deliver
             </h1>
           </div>
           <Card />
           <div className="flex justify-center mt-12">
-            <button className="bg-blue-600 text-white text-lg px-10 py-4 rounded-full hover:bg-red-600 transition">
+            <button className="bg-blue-900 text-white text-lg px-10 py-4 rounded-full hover:bg-red-700 transition">
               More Products
             </button>
           </div>
@@ -172,7 +172,7 @@ function Home() {
               Industires
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
               Who We Serve
             </h1>
           </div>
@@ -193,7 +193,7 @@ function Home() {
               Testimonials
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
               What our clients say
             </h1>
           </div>
@@ -223,52 +223,53 @@ function Home() {
               Contact
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-600 z-10">
+            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10">
               Get in Touch With Us
             </h1>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6 mr-10 ">
             <div>
-              <label className="block text-black font-medium mb-2 ">
+              <label className="block text-black text-md sm:text-xl font-medium mb-2 ">
                 Name
               </label>
               <input
                 type="text"
                 placeholder="Your name"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
             <div>
-              <label className="block text-black font-medium mb-2">
+              <label className="block text-black text-md sm:text-xl font-medium mb-2">
                 Email
               </label>
               <input
                 type="email"
                 placeholder="you@example.com"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
             <div>
-              <label className="block text-black font-medium mb-2">
+              <label className="block text-black text-md sm:text-xl font-medium mb-2">
                 Message
               </label>
               <textarea
                 rows={5}
                 placeholder="Your message"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white font-medium py-3 rounded-lg hover:bg-red-700 transition duration-300"
-            >
-              Send Message
-            </button>
+            <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                className="w-full/2  bg-blue-900 text-white font-medium sm:py-5 sm:px-14 text-md px-8 py-3  sm:text-xl rounded-4xl hover:bg-red-700 transition duration-300"
+              >
+                Send Message
+              </button>
+            </div>
           </form>
         </div>
       </section>
-
     </div>
   );
 }

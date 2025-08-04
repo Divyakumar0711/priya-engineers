@@ -91,10 +91,10 @@ export const InfiniteMovingCards = ({
     className="relative w-[350px] shrink-0 rounded-2xl shadow-lg bg-white px-8 py-6 md:w-[450px] flex flex-col justify-between"
   >
     <blockquote className="flex flex-col h-full justify-between">
-      <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800 dark:text-gray-100">
+      <span className="relative z-20 text-sm font-medium leading-[1.6] tracking-wide text-black dark:text-gray-100">
         {item.quote}
       </span>
-      <div className="relative z-20 mt-6 flex flex-row items-center">
+      <div className="relative z-20 mt-6 flex flex-row items-center tracking-wide">
         <span className="flex flex-col gap-1">
           <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
             {item.name}
