@@ -19,7 +19,7 @@ function page() {
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
               At Priya Engineers, our engineering team provides reliable
-              solutions tailored for your industrial machinery. Whether you're
+              solutions tailored for your industrial machinery. Whether you are
               optimizing performance, replacing outdated systems, or preventing
               downtime, our expertise supports you every step of the way.
             </p>
@@ -40,7 +40,7 @@ function page() {
                 spare parts.
               </li>
               <li>
-                You're looking to upgrade outdated or inefficient systems.
+                You are looking to upgrade outdated or inefficient systems.
               </li>
               <li>High maintenance costs are impacting your bottom line.</li>
             </ul>

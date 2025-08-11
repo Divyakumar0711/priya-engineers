@@ -1,12 +1,10 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function ProductDetailsPage() {
   // Later replace this with real dynamic data based on slug
   const searchParams = useSearchParams();
-  const productName = searchParams.get("product") || "Worm Reduction Gearbox";
 
   return (
     <div className="font-sans">

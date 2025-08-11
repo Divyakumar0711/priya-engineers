@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Cinzel } from "next/font/google";
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
-import productData from "@/data/productData";
 
 import {
   DropdownMenu,

@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import productData from "@/data/productData";
 import CommonHeader from "@/components/CommonHeader";
 export default function ProductsPage() {
   const products = [
