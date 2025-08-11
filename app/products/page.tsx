@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import CommonHeader from "@/components/CommonHeader";
+import Image from "next/image";
 export default function ProductsPage() {
   const products = [
     {
@@ -51,22 +52,13 @@ export default function ProductsPage() {
             className="flex flex-col md:flex-row items-center gap-10 bg-gray-50 p-8 rounded-2xl shadow-xl"
           >
             <div className="w-full md:w-[50%]">
-              <img
+              <Image
                 src={product.image}
                 alt={product.title}
                 className="w-full h-[320px] object-contain"
               />
             </div>
-            {/* <div className="flex flex-col justify-center w-full md:w-[50%]">
-                <h3 className="text-2xl font-semibold mb-4">{product.title}</h3>
-                <p className="text-lg text-gray-700 mb-6">{product.description}</p>
-                <a
-                  href={product.link}
-                  className="text-blue-700 text-lg font-medium hover:underline"
-                >
-                  {product.catalogue}
-                </a>
-              </div> */}
+            
             <div className="flex flex-col justify-center w-full md:w-[50%]">
               <h3 className="text-2xl font-semibold mb-4">{product.title}</h3>
               <p className="text-lg text-gray-700 mb-6">

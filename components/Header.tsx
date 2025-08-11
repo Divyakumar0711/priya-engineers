@@ -3,13 +3,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Cinzel } from "next/font/google";
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
 
 const cinzelFont = Cinzel({
   weight: "700",
@@ -48,7 +48,7 @@ function Header() {
       <div className="flex justify-between items-center h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
-          <img
+          <Image
             src="https://media.istockphoto.com/id/825651030/photo/conceptual-gear-design-paper-cutting-style.webp?a=1&b=1&s=612x612&w=0&k=20&c=KyjEFLdqtScC-TM8IaQUykPds4Q3nXSxmglSjFdQruo="
             alt="Priya Engineers Logo"
             className="sm:h-12 sm:w-12 h-8 w-8 rounded-full object-cover"
@@ -128,7 +128,7 @@ function Header() {
             {/* Mobile Header */}
             <div className="flex justify-between items-center p-4 border-b border-white ml-5">
               <div className="flex items-center gap-2">
-                <img
+                <Image
                   src="https://media.istockphoto.com/id/825651030/photo/conceptual-gear-design-paper-cutting-style.webp?a=1&b=1&s=612x612&w=0&k=20&c=KyjEFLdqtScC-TM8IaQUykPds4Q3nXSxmglSjFdQruo="
                   alt="Priya Engineers Logo"
                   className="h-10 w-10 rounded-full object-cover"

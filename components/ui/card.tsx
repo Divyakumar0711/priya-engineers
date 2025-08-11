@@ -1,5 +1,6 @@
 "use client";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import React, { useState } from "react";
 
 type Card = {
@@ -51,7 +52,7 @@ const Card: React.FC = () => {
             key={card.id}
             className="bg-white shadow-xl rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 flex flex-col"
           >
-            <img
+            <Image
               src={card.image}
               alt={card.title}
               className="w-full h-72 object-cover"

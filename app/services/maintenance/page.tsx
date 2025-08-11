@@ -1,4 +1,5 @@
 import CommonHeader from "@/components/CommonHeader";
+import Image from "next/image";
 import React from "react";
 
 function page() {
@@ -15,7 +16,7 @@ function page() {
           <div className="md:flex md:items-center md:gap-12 space-y-8 md:space-y-0">
             {/* Image */}
             <div className="md:w-1/2">
-              <img
+              <Image
                 src="https://img.freepik.com/premium-photo/young-engineer-male-worker-work-heavy-metal-industry-cnc-lathe-machine-with-safety_43300-5061.jpg"
                 alt="Installation services"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
@@ -93,7 +94,7 @@ function page() {
 
             {/* Image */}
             <div className="md:w-1/2">
-              <img
+              <Image
                 src="https://img.freepik.com/premium-photo/young-engineer-male-worker-work-heavy-metal-industry-cnc-lathe-machine-with-safety_43300-5061.jpg"
                 alt="Installation services"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
@@ -105,7 +106,7 @@ function page() {
           <div className="md:flex md:items-center md:gap-12 space-y-8 md:space-y-0">
             {/* Image */}
             <div className="md:w-1/2">
-              <img
+              <Image
                 src="https://img.freepik.com/premium-photo/young-engineer-male-worker-work-heavy-metal-industry-cnc-lathe-machine-with-safety_43300-5061.jpg"
                 alt="Installation services"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"

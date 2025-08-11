@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import Image from "next/image";
 const TimelineSection = ({
   text,
   images,
@@ -20,7 +21,7 @@ const TimelineSection = ({
     ))}
     <div className="grid grid-cols-2 gap-4 mt-4">
       {images.map((src, idx) => (
-        <img
+        <Image
           key={idx}
           src={src}
           alt={`Timeline image ${idx + 1}`}
