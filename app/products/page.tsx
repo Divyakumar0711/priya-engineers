@@ -82,18 +82,7 @@ export default function ProductsPage() {
           </div>
         ))}
       </div>
-      {/* <ul className="mt-6 space-y-4">
-        {productData.map((product) => (
-          <li key={product.id}>
-            <Link
-              href={`/products/productDetails?productId=${product.id}`}
-              className="text-blue-500 hover:underline"
-            >
-              {product.name}
-            </Link>
-          </li>
-        ))}
-      </ul> */}
+     
     </div>
   );
 }
