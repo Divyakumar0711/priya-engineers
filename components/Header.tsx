@@ -11,6 +11,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 
+type HeroProps = {
+  src: string;
+};
+
 const cinzelFont = Cinzel({
   weight: "700",
   subsets: ["latin"],
@@ -49,6 +53,8 @@ function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
           <Image
+            width={8}
+            height={8}
             src="https://media.istockphoto.com/id/825651030/photo/conceptual-gear-design-paper-cutting-style.webp?a=1&b=1&s=612x612&w=0&k=20&c=KyjEFLdqtScC-TM8IaQUykPds4Q3nXSxmglSjFdQruo="
             alt="Priya Engineers Logo"
             className="sm:h-12 sm:w-12 h-8 w-8 rounded-full object-cover"

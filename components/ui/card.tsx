@@ -52,7 +52,9 @@ const Card: React.FC = () => {
             key={card.id}
             className="bg-white shadow-xl rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 flex flex-col"
           >
-            <Image
+            <Image 
+            width={72}
+            height={72}
               src={card.image}
               alt={card.title}
               className="w-full h-72 object-cover"
