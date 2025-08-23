@@ -11,8 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 
-
-
 const cinzelFont = Cinzel({
   weight: "700",
   subsets: ["latin"],
@@ -40,7 +38,7 @@ const navigation = [
 type HeroProps = {
   src: string;
 };
-function Header({ }: HeroProps) {
+function Header({}: HeroProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownStates, setMobileDropdownStates] = useState<{
