@@ -17,14 +17,15 @@ const cinzelFont = Cinzel({
   variable: "--font-cinzel",
 });
 
-// ✅ Updated navigation with links for all dropdown items
-const navigation = [
+// ✅ Explicit type definition for navigation
+type NavItem =
+  | { name: string; href: string; hasDropdown?: false }
+  | { name: string; hasDropdown: true; items: { name: string; href: string }[] };
+
+const navigation: NavItem[] = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  {
-    name: "Products",
-    href: "/products",
-  },
+  { name: "Products", href: "/products" },
   {
     name: "Services",
     hasDropdown: true,
@@ -49,20 +50,18 @@ function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
           <Image
-            width={8}
-            height={8}
+            width={48}
+            height={48}
             src="https://media.istockphoto.com/id/825651030/photo/conceptual-gear-design-paper-cutting-style.webp?a=1&b=1&s=612x612&w=0&k=20&c=KyjEFLdqtScC-TM8IaQUykPds4Q3nXSxmglSjFdQruo="
             alt="Priya Engineers Logo"
             className="sm:h-12 sm:w-12 h-8 w-8 rounded-full object-cover"
           />
-          <div>
-            <h1
-              className={`text-2xl sm:text-5xl tracking-wide font-bold ${cinzelFont.className}`}
-            >
-              <span className="text-red-700">PRIYA</span>{" "}
-              <span className="text-blue-900">ENGINEERS</span>
-            </h1>
-          </div>
+          <h1
+            className={`text-2xl sm:text-5xl tracking-wide font-bold ${cinzelFont.className}`}
+          >
+            <span className="text-red-700">PRIYA</span>{" "}
+            <span className="text-blue-900">ENGINEERS</span>
+          </h1>
         </Link>
 
         {/* Menu Icon for Mobile */}
@@ -92,7 +91,7 @@ function Header() {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-blue-900 w-76 rounded-md shadow-lg mt-2">
-                    {item.items?.map((subItem) => (
+                    {item.items.map((subItem) => (
                       <DropdownMenuItem key={subItem.name} asChild>
                         <Link
                           href={subItem.href}
@@ -126,13 +125,15 @@ function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="fixed top-0 right-0 w-full h-full bg-blue-900 z-50 text-white shadow-lg transition-transform duration-300 md:hidden mr-5">
+          <div className="fixed top-0 right-0 w-full h-full bg-blue-900 z-50 text-white shadow-lg transition-transform duration-300 md:hidden">
             {/* Mobile Header */}
-            <div className="flex justify-between items-center p-4 border-b border-white ml-5">
+            <div className="flex justify-between items-center p-4 border-b border-white">
               <div className="flex items-center gap-2">
                 <Image
                   src="https://media.istockphoto.com/id/825651030/photo/conceptual-gear-design-paper-cutting-style.webp?a=1&b=1&s=612x612&w=0&k=20&c=KyjEFLdqtScC-TM8IaQUykPds4Q3nXSxmglSjFdQruo="
                   alt="Priya Engineers Logo"
+                  width={40}
+                  height={40}
                   className="h-10 w-10 rounded-full object-cover"
                 />
                 <h1
@@ -148,75 +149,65 @@ function Header() {
             </div>
 
             {/* Mobile Menu Items */}
-            <div className="flex flex-col gap-4 p-4 text-lg ml-5">
+            <div className="flex flex-col gap-4 p-4 text-lg">
               {navigation.map((item) => {
-                const hasSubmenu = item.hasDropdown && item.items?.length;
-                const isOpen = mobileDropdownStates[item.name] || false;
-
-                return (
-                  <div key={item.name}>
-                    <button
-                      onClick={() => {
-                        if (hasSubmenu) {
+                if (item.hasDropdown) {
+                  const isOpen = mobileDropdownStates[item.name] || false;
+                  return (
+                    <div key={item.name}>
+                      <button
+                        onClick={() =>
                           setMobileDropdownStates((prev) => ({
                             ...prev,
                             [item.name]: !prev[item.name],
-                          }));
-                        } else {
-                          setIsMobileMenuOpen(false);
+                          }))
                         }
-                      }}
-                      className="flex justify-between items-center w-full text-left hover:text-red-400 pr-2"
+                        className="flex justify-between items-center w-full text-left hover:text-red-400 pr-2"
+                      >
+                        <span>{item.name}</span>
+                        {isOpen ? (
+                          <ChevronUp className="w-5 h-5 text-white" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-white" />
+                        )}
+                      </button>
+                      {isOpen && (
+                        <div className="mt-2 w-full flex flex-col gap-2 pr-8">
+                          {item.items.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="bg-white text-blue-900 text-base px-4 py-2 rounded-md shadow-sm w-full block"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                } else {
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="w-full text-left hover:text-red-400"
                     >
-                      {hasSubmenu ? (
-                        <span className="cursor-pointer">{item.name}</span>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="w-full text-left"
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                      {hasSubmenu && (
-                        <span className="ml-2 mr-4">
-                          {isOpen ? (
-                            <ChevronUp className="w-5 h-5 text-white" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 text-white" />
-                          )}
-                        </span>
-                      )}
-                    </button>
-
-                    {hasSubmenu && isOpen && (
-                      <div className="mt-2 w-full flex flex-col gap-2 pr-8">
-                        {item.items.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="bg-white text-blue-900 text-base px-4 py-2 rounded-md shadow-sm w-full block"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
+                      {item.name}
+                    </Link>
+                  );
+                }
               })}
 
-              <div className="pr-5">
-                <Link
-                  href="/get-quote"
-                  className="block text-center bg-red-700 text-white py-3 rounded-md mt-4 hover:bg-red-800 transition"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Quote
-                </Link>
-              </div>
+              <Link
+                href="/get-quote"
+                className="block text-center bg-red-700 text-white py-3 rounded-md mt-4 hover:bg-red-800 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get Quote
+              </Link>
             </div>
           </div>
         )}
