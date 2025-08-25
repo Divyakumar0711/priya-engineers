@@ -35,10 +35,8 @@ const navigation = [
   },
   { name: "Contact Us", href: "/contact" },
 ];
-type HeroProps = {
-  src: string;
-};
-function Header({}: HeroProps) {
+
+function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownStates, setMobileDropdownStates] = useState<{
