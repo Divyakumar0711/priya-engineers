@@ -3,6 +3,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import Image from "next/image";
+
 const TimelineSection = ({
   text,
   images,
@@ -12,20 +13,22 @@ const TimelineSection = ({
 }) => (
   <div>
     {text.map((line, idx) => (
-      <h3
+      <h1
         key={idx}
-        className="mb-2 text-xl font-normal text-neutral-800 md:text-lg dark:text-neutral-200"
+        className="mb-2 text-lg sm:text-lg md:text-xl font-normal text-neutral-800 dark:text-neutral-200 leading-snug"
       >
         {line}
-      </h3>
+      </h1>
     ))}
-    <div className="grid grid-cols-2 gap-4 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
       {images.map((src, idx) => (
-        <img
+        <Image
           key={idx}
           src={src}
           alt={`Timeline image ${idx + 1}`}
-          className="h-40 w-full rounded-lg object-cover shadow md:h-44 lg:h-90"
+          width={500}
+          height={300}
+          className="w-full h-48 sm:h-56 md:h-60 lg:h-72 rounded-lg object-cover shadow"
         />
       ))}
     </div>
@@ -43,8 +46,8 @@ export const TimelineContent = () => {
             "Launched advanced gear systems for heavy industries.",
           ]}
           images={[
-            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop",
           ]}
         />
       ),
@@ -58,8 +61,8 @@ export const TimelineContent = () => {
             "Launched advanced gear systems for heavy industries.",
           ]}
           images={[
-            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop",
           ]}
         />
       ),
@@ -73,8 +76,8 @@ export const TimelineContent = () => {
             "Launched advanced gear systems for heavy industries.",
           ]}
           images={[
-            "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop",
           ]}
         />
       ),
@@ -82,7 +85,7 @@ export const TimelineContent = () => {
   ];
 
   return (
-    <div className="relative w-full overflow-clip">
+    <div className="relative w-full overflow-clip px-4 sm:px-6 md:px-8">
       <Timeline data={data} />
     </div>
   );
