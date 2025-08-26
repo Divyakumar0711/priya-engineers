@@ -136,13 +136,13 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20 tracking-wide">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-white text-[3.5rem]  md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Products
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl  lg:text-6xl font-bold text-blue-900 z-10">
               What We Deliver
             </h1>
           </div>
@@ -161,13 +161,13 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-gray-100 text-[3rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Industries
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl  lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
               Who We Serve
             </h1>
           </div>
@@ -182,13 +182,13 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-white text-[3rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Testimonials
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
               What our clients say
             </h1>
           </div>
@@ -209,13 +209,13 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-gray-100 text-[3.5rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Contact
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl  lg:text-6xl font-bold text-blue-900 z-10">
               Get in Touch With Us
             </h1>
           </div>
