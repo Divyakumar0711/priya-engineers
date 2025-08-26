@@ -16,7 +16,9 @@ function page() {
           <div className="w-full md:w-1/2">
             <Image
               src="https://images.unsplash.com/photo-1711199694531-e982a79ea381?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="About Gamma Gears"
+              alt="About"
+              width={500}
+              height={500}
               className="w-full h-auto rounded-xl shadow-lg object-cover"
             />
           </div>

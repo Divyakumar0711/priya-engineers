@@ -14,14 +14,14 @@ const TimelineSection = ({
     {text.map((line, idx) => (
       <h3
         key={idx}
-        className="mb-2 text-lg font-normal text-neutral-800 md:text-lg dark:text-neutral-200"
+        className="mb-2 text-xl font-normal text-neutral-800 md:text-lg dark:text-neutral-200"
       >
         {line}
       </h3>
     ))}
     <div className="grid grid-cols-2 gap-4 mt-4">
       {images.map((src, idx) => (
-        <Image
+        <img
           key={idx}
           src={src}
           alt={`Timeline image ${idx + 1}`}
@@ -43,8 +43,8 @@ export const TimelineContent = () => {
             "Launched advanced gear systems for heavy industries.",
           ]}
           images={[
-            "https://plus.unsplash.com/premium_photo-1681426673022-db3d911ea11a?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "https://plus.unsplash.com/premium_photo-1664392271317-132e491d2e7c?q=80&w=1050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           ]}
         />
       ),
@@ -58,8 +58,8 @@ export const TimelineContent = () => {
             "Launched advanced gear systems for heavy industries.",
           ]}
           images={[
-            "https://plus.unsplash.com/premium_photo-1681426673022-db3d911ea11a?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "https://plus.unsplash.com/premium_photo-1664392271317-132e491d2e7c?q=80&w=1050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           ]}
         />
       ),
@@ -73,8 +73,8 @@ export const TimelineContent = () => {
             "Launched advanced gear systems for heavy industries.",
           ]}
           images={[
-            "https://plus.unsplash.com/premium_photo-1681426673022-db3d911ea11a?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "https://plus.unsplash.com/premium_photo-1664392271317-132e491d2e7c?q=80&w=1050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           ]}
         />
       ),
