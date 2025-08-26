@@ -30,13 +30,19 @@ const industries = [
 
 export default function LayoutGrid() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 p-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 p-4 sm:p-6">
       {industries.map(({ name, icon: Icon }) => (
-        <div key={name} className="flex flex-col items-center text-center tracking-wide">
-          <div className="w-44 h-44 rounded-full bg-white flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-            <Icon className="h-16 w-16 text-red-700 hover:text-blue-900" />
+        <div
+          key={name}
+          className="flex flex-col items-center text-center tracking-wide"
+        >
+          {/* Responsive circle sizes */}
+          <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-44 lg:h-44 rounded-full bg-white flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
+            <Icon className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-red-700 hover:text-blue-900" />
           </div>
-          <h4 className="mt-4 text-gray-800 font-semibold text-sm">{name}</h4>
+          <h4 className="mt-3 sm:mt-4 text-gray-800 font-semibold text-xs sm:text-sm md:text-base">
+            {name}
+          </h4>
         </div>
       ))}
     </div>

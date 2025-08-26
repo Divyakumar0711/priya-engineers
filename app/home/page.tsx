@@ -8,6 +8,7 @@ import { Cinzel } from "next/font/google";
 
 import LayoutGrid from "@/components/ui/layout-grid";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+
 const cinzelFont = Cinzel({
   weight: "700",
   subsets: ["latin"],
@@ -45,26 +46,27 @@ const testimonials = [
     title: "Moby-Dick",
   },
 ];
+
 function Home() {
   return (
     <div className="min-h-screen bg-white">
       <HeroSection />
 
-      {/* Welcome Section - Like Priya engineers "25 Year Experience" */}
-      <section className="py-20 lg:py-0 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2  lg:gap-16 items-center">
+      {/* Welcome Section */}
+      <section className="pt-10 sm:pt-16 lg:pt-20 bg-white">
+        <div className="  px-4 sm:px-6 lg:px-8 ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             <div className="relative flex flex-col items-center space-y-4">
               <Image
                 src="/assets/images/25_years_logo.png"
                 alt="25_logo.png"
                 width={500}
                 height={500}
-                className="w-60 sm:w-72 md:w-[400px] lg:w-[500px] h-auto"
+                className="w-80 md:w-[400px] lg:w-[500px] "
               />
-              <div className="mb-4">
+              <div>
                 <h2
-                  className={`lg:text-4xl font-bold text-gray-900 tracking-wider text-center ${cinzelFont.className}`}
+                  className={`lg:text-4xl text-3xl font-bold text-gray-900 tracking-wider text-center ${cinzelFont.className}`}
                 >
                   <span className="text-red-700">YEARS</span>{" "}
                   <span className="text-black">OF</span>{" "}
@@ -74,32 +76,32 @@ function Home() {
             </div>
 
             {/* Content */}
-            <div className="flex items-center">
+            <div className="flex items-center ">
               <ContainerScroll
                 titleComponent={
-                  <>
-                    <h1 className="text-2xl font-semibold text-black dark:text-white tracking-wide">
+                  <div className="mb-5">
+                    <h1 className="text-2xl  font-semibold text-black dark:text-white tracking-wide">
                       Welcome to <br />
                       <span
-                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-red-700 ${cinzelFont.className}`}
+                        className={`text-3xl  md:text-[6rem] font-bold mt-1 leading-none text-red-700 ${cinzelFont.className}`}
                       >
                         PRIYA
                       </span>
                       <br />
                       <span
-                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-blue-900 ${cinzelFont.className}`}
+                        className={`text-3xl  md:text-[6rem] font-bold mt-1 leading-none text-blue-900 ${cinzelFont.className}`}
                       >
                         ENGINEERS
                       </span>
                     </h1>
-                  </>
+                  </div>
                 }
               >
                 <div
-                  className="max-h-full overflow-y-auto px-3 text-left scrollbar-hide tracking-wide"
+                  className="max-h-full overflow-y-auto px-2 sm:px-3 text-left scrollbar-hide tracking-wide"
                   style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
-                  <p className="text-lg text-black mb-6 leading-relaxed">
+                  <p className="text-base sm:text-lg text-black mb-4 sm:mb-6 leading-relaxed">
                     Our engineers are committed to deliver optimal performance,
                     durability, and efficiency. Priya Engineers understand the
                     significant role these components work in the smooth
@@ -108,21 +110,14 @@ function Home() {
                     quality control measures in our manufacturing process.
                   </p>
 
-                  <p className="text-lg text-black mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg text-black mb-4 sm:mb-6 leading-relaxed">
                     With a dedicated team of engineers manufacturing engineers
                     and advanced manufacturing facilities, Priya Engineers
                     confirm that engineers manufacturers products with highest
                     standards of excellence and consistency.
                   </p>
 
-                  <p className="text-lg text-black mb-8 leading-relaxed">
-                    With a dedicated team of engineers manufacturing engineers
-                    and advanced manufacturing facilities, Priya Engineers
-                    confirm that engineers manufacturers products with highest
-                    standards of excellence and consistency.
-                  </p>
-
-                  <p className="text-lg text-black mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg text-black mb-4 sm:mb-6 leading-relaxed">
                     With a dedicated team of engineers manufacturing engineers
                     and advanced manufacturing facilities, Priya Engineers
                     confirm that engineers manufacturers products with highest
@@ -135,25 +130,25 @@ function Home() {
         </div>
       </section>
 
-      {/* What We Do - 4 Main Products */}
-      <section className="py-20 bg-gray-100">
-        <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative text-center py-20 tracking-wide">
+      {/* What We Do */}
+      <section className="py-10 sm:py-16 lg:py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative text-center py-10 sm:py-16 lg:py-20 tracking-wide">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-white text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Products
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10">
               What We Deliver
             </h1>
           </div>
           <Card />
-          <div className="flex justify-center mt-12">
-            <button className="bg-blue-900 text-white text-lg px-10 py-4 rounded-full hover:bg-red-700 transition">
+          <div className="flex justify-center mt-6 sm:mt-12">
+            <button className="bg-blue-900 text-white text-lg px-6 sm:px-10 py-2 sm:py-4 rounded-full hover:bg-red-700 transition">
               More Products
             </button>
           </div>
@@ -161,18 +156,18 @@ function Home() {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative text-center py-20">
+          <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-gray-100 text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
-              Industires
+              Industries
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
               Who We Serve
             </h1>
           </div>
@@ -182,26 +177,23 @@ function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-100">
-        <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative text-center py-20 ">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2.1rem]  md:text-[7rem] lg:text-[10rem]
+               text-white text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Testimonials
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
               What our clients say
             </h1>
           </div>
 
-          <div
-            className="mt-[2
-          0rem] p-30 rounded-md flex flex-col antialiased dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
-          >
+          <div className="mt-8 sm:mt-12 p-2 sm:p-10 rounded-md flex flex-col antialiased dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
             <InfiniteMovingCards
               items={testimonials}
               direction="right"
@@ -212,57 +204,57 @@ function Home() {
       </section>
 
       {/* Contact Us */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative text-center py-20">
+          <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
+               text-gray-100 text-[2rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Contact
             </h3>
 
-            <h1 className="relative mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-xl sm:text-2xl lg:text-6xl font-bold text-blue-900 z-10">
               Get in Touch With Us
             </h1>
           </div>
 
-          <form className="space-y-6 mr-10 ">
+          <form className="space-y-4 sm:space-y-6">
             <div>
-              <label className="block text-black text-md sm:text-xl font-medium mb-2 ">
+              <label className="block text-black text-sm sm:text-md md:text-xl font-medium mb-1 sm:mb-2">
                 Name
               </label>
               <input
                 type="text"
                 placeholder="Your name"
-                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                className="w-full p-3 sm:p-4 text-sm sm:text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
             <div>
-              <label className="block text-black text-md sm:text-xl font-medium mb-2">
+              <label className="block text-black text-sm sm:text-md md:text-xl font-medium mb-1 sm:mb-2">
                 Email
               </label>
               <input
                 type="email"
                 placeholder="you@example.com"
-                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                className="w-full p-3 sm:p-4 text-sm sm:text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
             <div>
-              <label className="block text-black text-md sm:text-xl font-medium mb-2">
+              <label className="block text-black text-sm sm:text-md md:text-xl font-medium mb-1 sm:mb-2">
                 Message
               </label>
               <textarea
-                rows={5}
+                rows={4}
                 placeholder="Your message"
-                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                className="w-full p-3 sm:p-4 text-sm sm:text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="w-full/2  bg-blue-900 text-white font-medium sm:py-5 sm:px-14 text-md px-8 py-3  sm:text-xl rounded-4xl hover:bg-red-700 transition duration-300"
+                className="bg-blue-900 text-white font-medium sm:py-4 sm:px-10 text-sm sm:text-lg px-6 py-2 rounded-3xl hover:bg-red-700 transition duration-300 w-full sm:w-auto"
               >
                 Send Message
               </button>
