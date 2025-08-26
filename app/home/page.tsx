@@ -136,7 +136,7 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20 tracking-wide">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2.8rem]  md:text-[7rem] lg:text-[10rem]
+               text-white text-[2.5rem]  md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Products
@@ -161,7 +161,7 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[2.8rem] md:text-[7rem] lg:text-[10rem]
+               text-gray-100 text-[2.5rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Industries
@@ -182,7 +182,7 @@ function Home() {
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2.5rem] md:text-[7rem] lg:text-[10rem]
+               text-white text-[2rem] md:text-[7rem] lg:text-[10rem]
                font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
             >
               Testimonials
