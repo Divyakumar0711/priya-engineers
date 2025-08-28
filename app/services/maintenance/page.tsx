@@ -19,6 +19,9 @@ function page() {
               <Image
                 src="https://img.freepik.com/premium-photo/young-engineer-male-worker-work-heavy-metal-industry-cnc-lathe-machine-with-safety_43300-5061.jpg"
                 alt="Installation services"
+                width={0}
+                height={0}
+                sizes="full"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
             </div>
@@ -97,6 +100,9 @@ function page() {
               <Image
                 src="https://img.freepik.com/premium-photo/young-engineer-male-worker-work-heavy-metal-industry-cnc-lathe-machine-with-safety_43300-5061.jpg"
                 alt="Installation services"
+                width={0}
+                height={0}
+                sizes="full"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
             </div>
@@ -109,6 +115,9 @@ function page() {
               <Image
                 src="https://img.freepik.com/premium-photo/young-engineer-male-worker-work-heavy-metal-industry-cnc-lathe-machine-with-safety_43300-5061.jpg"
                 alt="Installation services"
+                 width={0}
+                height={0}
+                sizes="full"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
             </div>

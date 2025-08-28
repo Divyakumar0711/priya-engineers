@@ -55,10 +55,13 @@ export default function ProductsPage() {
               <Image
                 src={product.image}
                 alt={product.title}
+                width={0}
+                height={0}
+                sizes="full"
                 className="w-full h-[320px] object-contain"
               />
             </div>
-            
+
             <div className="flex flex-col justify-center w-full md:w-[50%]">
               <h3 className="text-2xl font-semibold mb-4">{product.title}</h3>
               <p className="text-lg text-gray-700 mb-6">
@@ -74,7 +77,6 @@ export default function ProductsPage() {
           </div>
         ))}
       </div>
-     
     </div>
   );
 }
