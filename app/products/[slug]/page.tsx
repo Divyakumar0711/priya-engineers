@@ -1,167 +1,88 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-import Image from "next/image";
-import { supabase } from "@/lib/supabaseClient";
+import { notFound } from "next/navigation";
 
-export default function ProductDetailsPage() {
-  const params = useParams();
-  const [product, setProduct] = useState<any>(null);
+interface Product {
+  title: string;
+  slug: string;
+  description: string;
+  image?: string;
+  specs?: Record<string, string | number | boolean>;
+  features?: Record<string, string | number | boolean>;
+}
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const { data, error } = await supabase
-        .from("products")
-        .select("*")
-        .eq("slug", params.slug)
-        .single();
+async function getProduct(slug: string): Promise<Product | null> {
+  const products: Product[] = [
+    {
+      title: "Transmission Shaft",
+      slug: "transmission-shaft",
+      description: "Heavy duty transmission shaft for industrial machinery",
+      specs: {
+        Material: "Alloy Steel",
+        Diameter: "50mm",
+        Length: "1200mm",
+      },
+      features: {
+        Precision: "High accuracy machining",
+        Durability: "Long service life",
+      },
+    },
+  ];
 
-      if (!error) setProduct(data);
-    };
+  return products.find((p) => p.slug === slug) ?? null;
+}
 
-    fetchProduct();
-  }, [params.slug]);
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
 
-  if (!product) return <p className="text-center mt-10">Loading...</p>;
+  const product = await getProduct(slug);
+
+  if (!product) return notFound();
 
   return (
-    <div className="font-sans">
-      {/* Header */}
-      <section className="px-6 pt-10 pb-4 max-w-7xl mx-auto mt-10 ">
-        <h1 className="text-3xl md:text-4xl font-bold text-[rgb(78,100,141)] tracking-wider">
-          {product.title}
-        </h1>
-      </section>
+    <div className="max-w-7xl mx-auto p-6">
+      <h1 className="text-3xl font-bold text-[rgb(78,100,141)]">
+        {product.title}
+      </h1>
 
-      {/* Main Image and Description */}
-      <section className="px-6 py-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        <div>
-          <Image
-            src={product.image}
-            alt={product.title}
-            width={600}
-            height={400}
-            className="w-full h-auto rounded-md shadow"
-          />
-        </div>
-        <div className="flex flex-col">
-          <p className="text-gray-700 mb-6 text-xl tracking-wide">
-            {product.description}
-          </p>
-          {product.catalogue && (
-            <a
-              href={product.catalogue}
-              target="_blank"
-              className="text-[rgb(78,100,141)] hover:underline font-medium hover:text-[rgb(225,6,0)] tracking-wide"
-            >
-              Download Catalogue
-            </a>
-          )}
-        </div>
-      </section>
+      <p className="mt-4 text-gray-700">{product.description}</p>
 
-      {/* Technical Specifications */}
-      {product.specs && typeof product.specs === "object" && (
-        <section className="bg-gray-100 py-10 px-6">
-          <div className="max-w-5xl mx-auto tracking-wide">
-            <h2 className="text-2xl text-[rgb(225,6,0)] font-semibold mb-6">
-              Technical Specifications
-            </h2>
-            <table className="w-full text-left table-auto border border-gray-300">
-              <thead className="bg-gray-200">
-                <tr>
-                  <th className="p-3 border">Parameter</th>
-                  <th className="p-3 border">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.entries(product.specs).map(([key, value]) => (
-                  <tr key={key}>
-                    <td className="p-3 border">{key}</td>
-                    <td className="p-3 border">{value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
-
-      {/* Features */}
-      {product.features && typeof product.features === "object" && (
-        <section className="py-12 px-6 max-w-5xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-6 text-[rgb(225,6,0)]">
+      {product.features && (
+        <section className="mt-8">
+          <h2 className="text-xl font-semibold text-[rgb(225,6,0)] mb-4">
             Features
           </h2>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
+
+          <ul className="list-disc pl-6 space-y-2">
             {Object.entries(product.features).map(([key, value]) => (
               <li key={key}>
-                {key}: {value}
+                {key}: {String(value)}
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      {/* Gallery */}
-      {product.gallery && Array.isArray(product.gallery) && product.gallery.length > 0 && (
-        <section className="py-10 px-6 max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {product.gallery.map((img: string, index: number) => (
-              <Image
-                key={index}
-                src={img}
-                alt={`${product.title} view ${index + 1}`}
-                width={400}
-                height={300}
-                className="rounded shadow"
-              />
-            ))}
-          </div>
+      {product.specs && (
+        <section className="mt-8">
+          <h2 className="text-xl font-semibold text-[rgb(78,100,141)] mb-4">
+            Specifications
+          </h2>
+
+          <table className="border w-full">
+            <tbody>
+              {Object.entries(product.specs).map(([key, value]) => (
+                <tr key={key}>
+                  <td className="border p-3 font-medium">{key}</td>
+                  <td className="border p-3">{String(value)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </section>
       )}
-
-      {/* Request a Quote Form */}
-      <section className="bg-blue-50 py-12 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-6 text-[rgb(225,6,0)]">
-            Request a Quote
-          </h2>
-          <form className="grid gap-4 md:grid-cols-2">
-            <input
-              type="text"
-              placeholder="Name"
-              className="p-3 border rounded w-full"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="p-3 border rounded w-full"
-            />
-            <input
-              type="text"
-              placeholder="Phone"
-              className="p-3 border rounded w-full"
-            />
-            <input
-              type="text"
-              placeholder="Company"
-              className="p-3 border rounded w-full"
-            />
-            <textarea
-              placeholder="Message"
-              rows={4}
-              className="p-3 border rounded md:col-span-2 w-full"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-[rgb(78,100,141)] text-white py-3 px-6 rounded hover:bg-[rgb(225,6,0)] md:col-span-2"
-            >
-              Submit Request
-            </button>
-          </form>
-        </div>
-      </section>
     </div>
   );
 }

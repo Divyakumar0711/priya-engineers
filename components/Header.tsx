@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Cinzel, Roboto_Slab } from "next/font/google";
+import { Cinzel } from "next/font/google";
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import {
   DropdownMenu,
@@ -17,11 +17,7 @@ const cinzelFont = Cinzel({
   variable: "--font-cinzel",
 });
 
-const robotoSlabFont = Roboto_Slab({
-  weight: "700",
-  subsets: ["latin"],
-  variable: "--font-robotoSlab",
-});
+
 
 type NavItem =
   | { name: string; href: string; hasDropdown?: false }
