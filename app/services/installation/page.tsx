@@ -14,7 +14,7 @@ function page() {
         <div className="max-w-6xl mx-auto space-y-24">
           {/* Engineering Services - Text Only */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-red-700 tracking-[0.1em]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[rgb(225,6,0)] tracking-[0.1em]">
               Engineering Services
             </h2>
 
@@ -56,7 +56,7 @@ function page() {
           <div className="md:flex md:items-center md:gap-12 space-y-8 md:space-y-0">
             {/* Text */}
             <div className="md:w-1/2 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-red-700  tracking-[0.1em]">
+              <h2 className="text-3xl md:text-4xl font-bold text-[rgb(225,6,0)]  tracking-[0.1em]">
                 Installation & Commissioning Services
               </h2>
 
@@ -102,7 +102,7 @@ function page() {
 
           {/* Key Considerations - Text Only */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-red-700 tracking-[0.1em]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[rgb(225,6,0)] tracking-[0.1em]">
               Key Considerations in Engineering & Installation
             </h2>
 

@@ -6,7 +6,7 @@ export default function ProductDetailsPage() {
   return (
     <div className="font-sans">
       <section className="px-6 pt-10 pb-4 max-w-7xl mx-auto mt-10 ">
-        <h1 className="text-3xl md:text-4xl font-bold text-blue-900 tracking-wider">
+        <h1 className="text-3xl md:text-4xl font-bold text-[rgb(78,100,141)] tracking-wider">
           Shaft
         </h1>
       </section>{" "}
@@ -28,7 +28,7 @@ export default function ProductDetailsPage() {
           </p>
           <a
             href="#"
-            className="text-blue-900 hover:underline font-medium hover:text-red-700 tracking-wide"
+            className="text-[rgb(78,100,141)] hover:underline font-medium hover:text-[rgb(225,6,0)] tracking-wide"
           >
             Download Catalogue
           </a>
@@ -37,7 +37,7 @@ export default function ProductDetailsPage() {
       {/* Specifications */}
       <section className="bg-gray-100 py-10 px-6">
         <div className="max-w-5xl mx-auto tracking-wide">
-          <h2 className="text-2xl text-red-700 font-semibold mb-6">
+          <h2 className="text-2xl text-[rgb(225,6,0)] font-semibold mb-6">
             Technical Specifications
           </h2>
           <table className="w-full text-left table-auto border border-gray-300">
@@ -66,7 +66,7 @@ export default function ProductDetailsPage() {
       </section>
       {/* Features */}
       <section className="py-12 px-6 max-w-5xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6 text-red-700">Features</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-[rgb(225,6,0)]">Features</h2>
         <ul className="list-disc pl-6 space-y-2 text-gray-700">
           <li>Compact and robust design</li>
           <li>High torque output</li>
@@ -110,7 +110,7 @@ export default function ProductDetailsPage() {
       {/* Quote Form */}
       <section className="bg-blue-50 py-12 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-6 text-red-700">
+          <h2 className="text-2xl font-semibold mb-6 text-[rgb(225,6,0)]">
             Request a Quote
           </h2>
           <form className="grid gap-4 md:grid-cols-2">
@@ -141,7 +141,7 @@ export default function ProductDetailsPage() {
             ></textarea>
             <button
               type="submit"
-              className="bg-blue-900 text-white py-3 px-6 rounded hover:bg-red-700 md:col-span-2"
+              className="bg-[rgb(78,100,141)] text-white py-3 px-6 rounded hover:bg-[rgb(225,6,0)] md:col-span-2"
             >
               Submit Request
             </button>
@@ -151,3 +151,4 @@ export default function ProductDetailsPage() {
     </div>
   );
 }
+

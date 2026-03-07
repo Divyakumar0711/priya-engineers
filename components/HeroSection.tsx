@@ -10,17 +10,17 @@ const slides = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1524514587686-e2909d726e9b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+      "https://ptsmake.com/wp-content/uploads/2025/02/ptsmake2025-02-04T044741.429Z-.webp",
   },
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1627807452502-0c8329fc710b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+      "/assets/images/hero1.jpg",
   },
   {
     id: 3,
     image:
-      "https://images.unsplash.com/photo-1582043568773-a7a2b57239f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+      "/assets/images/shaft.png",
   },
 ];
 

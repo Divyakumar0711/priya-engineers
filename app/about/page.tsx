@@ -25,7 +25,7 @@ function page() {
 
           {/* Text */}
           <div className="w-full md:w-1/2">
-            <h2 className="text-4xl font-bold text-red-700 mb-6 tracking-wide">
+            <h2 className="text-4xl font-bold text-[rgb(225,6,0)] mb-6 tracking-wide">
               About Us
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-4">
@@ -58,7 +58,7 @@ function page() {
       <section className="bg-gray-100 py-20 px-8 pr-8">
         <div className="max-w-6xl mx-auto relative">
           {/* Center vertical line for medium+ screens only */}
-          <div className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-700" />
+          <div className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-1 bg-[rgb(225,6,0)]" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
             {/* Our Vision */}
@@ -66,7 +66,7 @@ function page() {
               className="
              pr-0 md:pr-12 text-left"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 tracking-wide mb-6 md:mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-[rgb(78,100,141)] tracking-wide mb-6 md:mb-10">
                 Our Vision
               </h2>
               <ul className="list-disc md:list-inside pl-5 md:pl-0 text-gray-700 text-base md:text-lg space-y-4">
@@ -78,7 +78,7 @@ function page() {
 
             {/* Our Mission */}
             <div className="md:text-left pl-0 md:pl-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 tracking-wide mb-6 md:mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-[rgb(78,100,141)] tracking-wide mb-6 md:mb-10">
                 Our Mission
               </h2>
               <ul className="list-disc md:list-inside pl-5 md:pl-0 text-gray-700 text-base md:text-lg space-y-4">
@@ -95,7 +95,7 @@ function page() {
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Our Quality */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-red-700   mb-6 tracking-wide">
+            <h2 className="text-3xl md:text-4xl font-bold text-[rgb(225,6,0)]   mb-6 tracking-wide">
               Our Quality:
             </h2>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
@@ -109,7 +109,7 @@ function page() {
 
           {/* Manufacturing Quality */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-red-700 mb-6 tracking-wide">
+            <h2 className="text-3xl md:text-4xl font-bold text-[rgb(225,6,0)] mb-6 tracking-wide">
               Manufacturing Quality
             </h2>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
@@ -123,7 +123,7 @@ function page() {
 
           {/* Service Capability */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-red-700 mb-6 tracking-wide">
+            <h2 className="text-3xl md:text-4xl font-bold text-[rgb(225,6,0)] mb-6 tracking-wide">
               Service Capability
             </h2>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">

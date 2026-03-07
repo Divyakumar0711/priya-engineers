@@ -1,7 +1,25 @@
 // components/Footer.tsx
+"use client";
 
 import Image from "next/image";
 
+import Link from "next/link";
+
+interface Product {
+  name: string;
+  slug: string; // URL-friendly slug for the product details page
+}
+
+const products: Product[] = [
+  { name: "Transmission Shaft", slug: "transmission-shaft" },
+  { name: "Pinion Shaft", slug: "pinion-shaft" },
+  { name: "Coupling Shaft", slug: "coupling-shaft" },
+  { name: "Hollow Shaft", slug: "hollow-shaft" },
+  { name: "Gear Shaft", slug: "gear-shaft" },
+  { name: "Screw Shaft", slug: "screw-shaft" },
+  { name: "Spline Shaft", slug: "spline-shaft" },
+  // Add more products here if needed
+];
 const socialIcons = [
   {
     name: "Facebook",
@@ -48,7 +66,7 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white pt-12 pb-6 px-6 md:px-20">
+    <footer className="bg-[rgb(78,100,141)] text-white pt-12 pb-6 px-6 md:px-20">
       <div className="grid md:grid-cols-3 gap-12 border-b border-white/20 pb-10">
         {/* Contact Info Section */}
         <div>
@@ -56,7 +74,7 @@ export default function Footer() {
 
           <div className="mb-4 flex gap-2 items-center">
             {/* Replace with MapPin icon SVG or image if needed */}
-            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center ">
+            <div className="w-12 h-12 bg-[rgb(225,6,0)] rounded-3xl flex items-center justify-center ">
               <Image
                 src={"/assets/icons/location-white.png"}
                 alt={"location"}
@@ -64,90 +82,85 @@ export default function Footer() {
                 height={24}
                 className="group-hover:invert transition duration-300"
               />
-            </div>{" "}
+            </div>
             <div className="text-sm tracking-wide">
               <p className="font-semibold">Office Address</p>
-              <p>
+
+              <a
+                href="https://maps.app.goo.gl/C9HV6h5AtPR19uGJA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 19 Swaminarayan complex, <br />
                 near Mangaldeep Party Plot, Amraiwadi,
                 <br />
                 Ahmedabad – 382415,
                 <br />
                 Gujarat – India
-              </p>
-            </div>
-          </div>
-
-          <div className="mb-4 flex gap-2 items-center">
-            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center ">
-              <Image
-                src={"/assets/icons/call-white.png"}
-                alt={"call"}
-                width={24}
-                height={24}
-                className="group-hover:invert transition duration-300"
-              />
-            </div>{" "}
-            <div className="text-sm tracking-wide">
-              <p className="font-semibold">Phone Number</p>
-              <a href="tel:+919978611575" className="hover:text-red-700 block">
-                +91 9825790413
               </a>
             </div>
           </div>
 
-          <div className="flex gap-2 items-center">
-            <div className="w-12 h-12 bg-red-500 rounded-3xl flex items-center justify-center ">
-              <Image
-                src={"/assets/icons/mail-white.png"}
-                alt={"email"}
-                width={24}
-                height={24}
-                className="group-hover:invert transition duration-300"
-              />
-            </div>
-            <div className="text-sm tracking-wide">
-              <p className="font-semibold">Email Address</p>
-              <a
-                href="mailto:priyaengineersahd@gmail.com"
-                className="hover:text-red-700 block"
-              >
-                priyaengineers@gmail.com
-              </a>
-            </div>
-          </div>
+         {/* Phone */}
+<div className="mb-4 flex gap-2 items-center">
+  <div className="w-12 h-12 bg-[rgb(225,6,0)] rounded-3xl flex items-center justify-center">
+    <Image
+      src="/assets/icons/call-white.png"
+      alt="call"
+      width={24}
+      height={24}
+      className="group-hover:invert transition duration-300"
+    />
+  </div>
+  <div className="text-sm tracking-wide">
+    <p className="font-semibold">Phone Number</p>
+    <p>
+      <a href="tel:+919978611575" className="hover:underline">
+        +91 9825790413
+      </a>
+    </p>
+  </div>
+</div>
+
+{/* Email */}
+<div className="flex gap-2 items-center">
+  <div className="w-12 h-12 bg-[rgb(225,6,0)] rounded-3xl flex items-center justify-center">
+    <Image
+      src="/assets/icons/mail-white.png"
+      alt="email"
+      width={24}
+      height={24}
+      className="group-hover:invert transition duration-300"
+    />
+  </div>
+  <div className="text-sm tracking-wide">
+    <p className="font-semibold">Email Address</p>
+    <p>
+      <a href="mailto:priyaengineersahd@gmail.com" className="hover:underline">
+        priyaengineers@gmail.com
+      </a>
+    </p>
+  </div>
+</div>
         </div>
 
         {/* Product Links Section */}
-        <div>
-          <h2 className="text-lg font-bold mb-4 tracking-wide">Product Link</h2>
-          <div className="grid grid-cols-2 gap-y-2 text-sm tracking-wide">
-            {[
-              "Worm Reduction Gearbox",
-              "Gear Box Spares",
-              "Extruder Gearbox",
-              "Line Polish Head Spares Parts",
-              "Helical GearBox",
-              "Customized Products",
-              "GCN Helical Gear Unit",
-              "Transmission Parts",
-              "Vertical Type Worm Gear Unit",
-              "Worm Shaft",
-              "GHU Type Worm Gear Unit",
-              "Worm Wheel",
-              "Spline Shafts",
-            ].map((product) => (
-              <a
-                key={product}
-                href="#"
-                className="hover:text-red-700 transition-colors"
-              >
-                {product}
-              </a>
-            ))}
-          </div>
-        </div>
-
+     <div>
+      <h2 className="text-lg font-bold mb-4 tracking-wide">Product Link</h2>
+      <div className="grid grid-cols-2 gap-y-2 text-sm tracking-wide">
+        {products.map((product) => (
+          <p key={product.slug}>
+            <Link
+              href={`/products/${product.slug}`}
+              className="hover:underline "
+            >
+              {product.name}
+            </Link>
+          </p>
+        ))}
+      </div>
+    </div>
         {/* Social Media Icons Section */}
         <div>
           <h2 className="text-lg font-bold mb-4 tracking-wide">Social Media</h2>

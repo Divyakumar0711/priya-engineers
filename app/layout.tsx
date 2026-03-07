@@ -24,3 +24,10 @@ export default function RootLayout({
     </html>
   );
 }
+export const metadata = {
+  title: "Priya Engineers",
+  description: "Industrial Shaft Manufacturer",
+  icons: {
+    icon: "/icon.png",
+  },
+};

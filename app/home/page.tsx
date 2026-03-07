@@ -1,11 +1,11 @@
 "use client";
 import HeroSection from "@/components/HeroSection";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Card from "@/components/ui/card";
 import { Cinzel } from "next/font/google";
-
 import LayoutGrid from "@/components/ui/layout-grid";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
@@ -17,14 +17,12 @@ const cinzelFont = Cinzel({
 
 const testimonials = [
   {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+    quote: "It was the best of times, it was the worst of times...",
     name: "Charles Dickens",
     title: "A Tale of Two Cities",
   },
   {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+    quote: "To be, or not to be...",
     name: "William Shakespeare",
     title: "Hamlet",
   },
@@ -32,18 +30,6 @@ const testimonials = [
     quote: "All that we see or seem is but a dream within a dream.",
     name: "Edgar Allan Poe",
     title: "A Dream Within a Dream",
-  },
-  {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
   },
 ];
 
@@ -54,7 +40,7 @@ function Home() {
 
       {/* Welcome Section */}
       <section className="pt-10 sm:pt-16 lg:pt-20 bg-white">
-        <div className="  px-4 sm:px-6 lg:px-8 ">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             <div className="relative flex flex-col items-center space-y-4">
               <Image
@@ -62,34 +48,33 @@ function Home() {
                 alt="25_logo.png"
                 width={500}
                 height={500}
-                className="w-80 md:w-[400px] lg:w-[500px] "
+                className="w-80 md:w-[400px] lg:w-[500px]"
               />
               <div>
                 <h2
                   className={`lg:text-4xl text-3xl font-bold text-gray-900 tracking-wider text-center ${cinzelFont.className}`}
                 >
-                  <span className="text-red-700">YEARS</span>{" "}
+                  <span className="text-[rgb(225,6,0)]">YEARS</span>{" "}
                   <span className="text-black">OF</span>{" "}
-                  <span className="text-blue-900">EXCELLENCE</span>
+                  <span className="text-[rgb(78,100,141)]">EXCELLENCE</span>
                 </h2>
               </div>
             </div>
 
-            {/* Content */}
-            <div className="flex items-center ">
+            <div className="flex items-center">
               <ContainerScroll
                 titleComponent={
                   <div className="mb-5">
-                    <h1 className="text-2xl  font-semibold text-black dark:text-white tracking-wide">
+                    <h1 className="text-2xl font-semibold text-black dark:text-white tracking-wide">
                       Welcome to <br />
                       <span
-                        className={`text-3xl  md:text-[6rem] font-bold mt-1 leading-none text-red-700 ${cinzelFont.className}`}
+                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-[rgb(225,6,0)] ${cinzelFont.className}`}
                       >
                         PRIYA
                       </span>
                       <br />
                       <span
-                        className={`text-3xl  md:text-[6rem] font-bold mt-1 leading-none text-blue-900 ${cinzelFont.className}`}
+                        className={`text-3xl md:text-[6rem] font-bold mt-1 leading-none text-[rgb(78,100,141)] ${cinzelFont.className}`}
                       >
                         ENGINEERS
                       </span>
@@ -97,31 +82,14 @@ function Home() {
                   </div>
                 }
               >
-                <div
-                  className="max-h-full overflow-y-auto px-2 sm:px-3 text-left scrollbar-hide tracking-wide"
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                >
+                <div className="max-h-full overflow-y-auto px-2 sm:px-3 text-left scrollbar-hide tracking-wide">
                   <p className="text-base sm:text-lg text-black mb-4 sm:mb-6 leading-relaxed">
                     Our engineers are committed to deliver optimal performance,
-                    durability, and efficiency. Priya Engineers understand the
-                    significant role these components work in the smooth
-                    function of machinery and industrial procedures, which is
-                    why Priya Engineers keep the latest technologies and strict
-                    quality control measures in our manufacturing process.
+                    durability, and efficiency.
                   </p>
-
                   <p className="text-base sm:text-lg text-black mb-4 sm:mb-6 leading-relaxed">
-                    With a dedicated team of engineers manufacturing engineers
-                    and advanced manufacturing facilities, Priya Engineers
-                    confirm that engineers manufacturers products with highest
-                    standards of excellence and consistency.
-                  </p>
-
-                  <p className="text-base sm:text-lg text-black mb-4 sm:mb-6 leading-relaxed">
-                    With a dedicated team of engineers manufacturing engineers
-                    and advanced manufacturing facilities, Priya Engineers
-                    confirm that engineers manufacturers products with highest
-                    standards of excellence and consistency.
+                    With advanced manufacturing facilities and strict quality
+                    control measures, we ensure excellence and consistency.
                   </p>
                 </div>
               </ContainerScroll>
@@ -135,39 +103,42 @@ function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative text-center py-10 sm:py-16 lg:py-20 tracking-wide">
             <h3
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2.5rem]  md:text-[7rem] lg:text-[10rem]
-               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2.5rem] md:text-[7rem] lg:text-[10rem] font-black select-none pointer-events-none tracking-[0.2em] uppercase ${cinzelFont.className}`}
             >
               Products
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl  lg:text-6xl font-bold text-blue-900 z-10">
+            <h1
+              className={`relative mt-6 sm:mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-[rgb(78,100,141)] z-10 `}
+            >
               What We Deliver
             </h1>
           </div>
+
           <Card />
+
           <div className="flex justify-center mt-6 sm:mt-12">
-            <button className="bg-blue-900 text-white text-lg px-6 sm:px-10 py-2 sm:py-4 rounded-full hover:bg-red-700 transition">
+            <Link
+              href="/products"
+              className="bg-[rgb(78,100,141)] text-white text-lg px-6 sm:px-10 py-2 sm:py-4 rounded-full hover:bg-[rgb(225,6,0)] transition"
+            >
               More Products
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Industries We Serve */}
+      {/* Industries */}
       <section className="py-10 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[2.5rem] md:text-[7rem] lg:text-[10rem]
-               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-100 text-[2.5rem] md:text-[7rem] lg:text-[10rem] font-black select-none pointer-events-none tracking-[0.2em] uppercase ${cinzelFont.className}`}
             >
               Industries
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl  lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-[rgb(78,100,141)] z-10 tracking-wide">
               Who We Serve
             </h1>
           </div>
@@ -181,19 +152,17 @@ function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white text-[2rem] md:text-[7rem] lg:text-[10rem]
-               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2rem] md:text-[7rem] lg:text-[10rem] font-black select-none pointer-events-none tracking-[0.2em] uppercase ${cinzelFont.className}`}
             >
               Testimonials
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-blue-900 z-10 tracking-wide">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-[rgb(78,100,141)] z-10 tracking-wide">
               What our clients say
             </h1>
           </div>
 
-          <div className="mt-8 sm:mt-12 p-2 sm:p-10 rounded-md flex flex-col antialiased dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+          <div className="mt-8 sm:mt-12 p-2 sm:p-10 rounded-md flex flex-col items-center justify-center relative overflow-hidden">
             <InfiniteMovingCards
               items={testimonials}
               direction="right"
@@ -203,58 +172,56 @@ function Home() {
         </div>
       </section>
 
-      {/* Contact Us */}
+      {/* Contact */}
       <section className="py-10 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative text-center py-10 sm:py-16 lg:py-20">
             <h3
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-gray-100 text-[3.5rem] md:text-[7rem] lg:text-[10rem]
-               font-black select-none pointer-events-none tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase"
+              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-100 text-[3.5rem] md:text-[7rem] lg:text-[10rem] font-black select-none pointer-events-none tracking-[0.2em] uppercase ${cinzelFont.className}`}
             >
               Contact
             </h3>
 
-            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl  lg:text-6xl font-bold text-blue-900 z-10">
+            <h1 className="relative mt-6 sm:mt-8 lg:mt-18 text-2xl lg:text-6xl font-bold text-[rgb(78,100,141)] z-10">
               Get in Touch With Us
             </h1>
           </div>
 
-          <form className="space-y-4 sm:space-y-6">
+          <form className="space-y-6">
             <div>
-              <label className="block text-black text-sm sm:text-md md:text-xl font-medium mb-1 sm:mb-2">
+              <label className="block text-black text-lg font-medium mb-2">
                 Name
               </label>
               <input
                 type="text"
-                placeholder="Your name"
-                className="w-full p-3 sm:p-4 text-sm sm:text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
+
             <div>
-              <label className="block text-black text-sm sm:text-md md:text-xl font-medium mb-1 sm:mb-2">
+              <label className="block text-black text-lg font-medium mb-2">
                 Email
               </label>
               <input
                 type="email"
-                placeholder="you@example.com"
-                className="w-full p-3 sm:p-4 text-sm sm:text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
+
             <div>
-              <label className="block text-black text-sm sm:text-md md:text-xl font-medium mb-1 sm:mb-2">
+              <label className="block text-black text-lg font-medium mb-2">
                 Message
               </label>
               <textarea
                 rows={4}
-                placeholder="Your message"
-                className="w-full p-3 sm:p-4 text-sm sm:text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                className="w-full p-4 text-lg text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
               />
             </div>
-            <div className="flex items-center justify-center">
+
+            <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-blue-900 text-white font-medium sm:py-4 sm:px-10 text-sm sm:text-lg px-6 py-2 rounded-3xl hover:bg-red-700 transition duration-300 w-full sm:w-auto"
+                className="bg-[rgb(78,100,141)] text-white font-medium px-10 py-4 rounded-3xl hover:bg-[rgb(225,6,0)] transition duration-300"
               >
                 Send Message
               </button>

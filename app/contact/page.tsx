@@ -1,5 +1,6 @@
 "use client";
 import CommonHeader from "@/components/CommonHeader";
+import ContactForm from "@/components/ContactForm";
 import React from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
@@ -17,10 +18,10 @@ export default function ContactPage() {
           {/* Left Column - Info */}
           <div className="space-y-8">
             {/* Office Address */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-300 group">
+            <div className="bg-gray-100 p-6 rounded-lg shadow hover:bg-[rgb(78,100,141)] transition-colors duration-300 group">
               <div className="flex items-start gap-4">
                 <div className="bg-white p-3 rounded-full">
-                  <FaMapMarkerAlt className="text-3xl text-red-600" />
+                  <FaMapMarkerAlt className="text-3xl text-[rgb(225,6,0)]" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-white transition-colors duration-300">
@@ -29,47 +30,60 @@ export default function ContactPage() {
                   <p className="text-gray-700 group-hover:text-white transition-colors duration-300">
                     <strong>Priya Engineers</strong>
                     <br />
-                    19 Swaminarayan complex, <br />
-                    near Mangaldeep Party Plot, Amraiwadi,
-                    <br />
-                    Ahmedabad – 382415,
-                    <br />
-                    Gujarat – India
+                    <a
+                      href="https://maps.app.goo.gl/C9HV6h5AtPR19uGJA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      19 Swaminarayan complex, <br />
+                      near Mangaldeep Party Plot, Amraiwadi,
+                      <br />
+                      Ahmedabad – 382415,
+                      <br />
+                      Gujarat – India
+                    </a>
                   </p>
                 </div>
               </div>
             </div>
-
             {/* Phone Number */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-300 group">
+            {/* Phone Number */}
+            <div className="bg-gray-100 p-6 rounded-lg shadow hover:bg-[rgb(78,100,141)] transition-colors duration-300 group">
               <div className="flex items-start gap-4">
                 <div className="bg-white p-3 rounded-full">
-                  <FaPhoneAlt className="text-2xl text-red-600" />
+                  <FaPhoneAlt className="text-2xl text-[rgb(225,6,0)]" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-white transition-colors duration-300">
                     Phone Number
                   </h3>
                   <p className="text-gray-700 group-hover:text-white transition-colors duration-300">
-                    +91 9825790413
+                    <a href="tel:+919825790413" className="hover:underline">
+                      +91 9825790413
+                    </a>
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Email Address */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-300 group">
+            <div className="bg-gray-100 p-6 rounded-lg shadow hover:bg-[rgb(78,100,141)] transition-colors duration-300 group">
               <div className="flex items-start gap-4">
-                {/* Icon Circle */}
                 <div className="bg-white p-3 rounded-full">
-                  <FaEnvelope className="text-red-600 text-2xl" />
+                  <FaEnvelope className="text-[rgb(225,6,0)] text-2xl" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-white transition-colors duration-300">
                     Email Address
                   </h3>
-                  <p className="text-red-600 font-medium group-hover:text-white transition-colors duration-300">
-                    priyaengineersahd@gmail.com
+                  <p className="text-[rgb(225,6,0)] font-medium group-hover:text-white transition-colors duration-300">
+                    <a
+                      href="mailto:priyaengineersahd@gmail.com"
+                      className="hover:underline"
+                    >
+                      priyaengineersahd@gmail.com
+                    </a>
                   </p>
                 </div>
               </div>
@@ -77,8 +91,8 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div>
-            <span className="inline-block bg-red-600 text-white px-4 py-1 text-sm font-semibold mb-4 rounded">
+          {/* <div>
+            <span className="inline-block bg-[rgb(225,6,0)] text-white px-4 py-1 text-sm font-semibold mb-4 rounded">
               Fill The Form
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10">
@@ -89,37 +103,39 @@ export default function ContactPage() {
               <input
                 type="text"
                 placeholder="Enter Name"
-                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-red-600"
+                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-[rgb(225,6,0)]"
               />
               <input
                 type="email"
                 placeholder="Enter Email Address"
-                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-red-600"
+                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-[rgb(225,6,0)]"
               />
               <input
                 type="text"
                 placeholder="Enter Number"
-                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-red-600"
+                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-[rgb(225,6,0)]"
               />
               <input
                 type="text"
                 placeholder="Enter Product"
-                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-red-600"
+                className="col-span-1 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-[rgb(225,6,0)]"
               />
               <textarea
                 placeholder="Enter Message"
                 rows={5}
-                className="col-span-2 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-red-600"
+                className="col-span-2 border border-gray-300 rounded-lg px-4 py-3 w-full focus:ring-2 focus:ring-[rgb(225,6,0)]"
               ></textarea>
 
               <button
                 type="submit"
-                className="col-span-2 bg-blue-600 text-white text-lg font-medium px-6 py-3 rounded-lg hover:bg-red-600 transition"
+                className="col-span-2 bg-[rgb(78,100,141)] text-white text-lg font-medium px-6 py-3 rounded-lg hover:bg-[rgb(225,6,0)] transition"
               >
                 Get A Quote
               </button>
             </form>
-          </div>
+          </div> */}
+
+          <ContactForm />
         </div>
       </section>
 

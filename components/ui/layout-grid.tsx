@@ -38,7 +38,7 @@ export default function LayoutGrid() {
         >
           {/* Responsive circle sizes */}
           <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-44 lg:h-44 rounded-full bg-white flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-            <Icon className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-red-700 hover:text-blue-900" />
+            <Icon className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-[rgb(225,6,0)] hover:text-[rgb(78,100,141)]" />
           </div>
           <h4 className="mt-3 sm:mt-4 text-gray-800 font-semibold text-xs sm:text-sm md:text-base">
             {name}

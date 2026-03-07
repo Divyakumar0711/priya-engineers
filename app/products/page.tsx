@@ -1,42 +1,25 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import CommonHeader from "@/components/CommonHeader";
 import Image from "next/image";
+import { supabase } from "@/lib/supabaseClient";
+
 export default function ProductsPage() {
-  const products = [
-    {
-      title: "Planetary Gearboxes Redulus⁴F",
-      description:
-        "The Redulus⁴F offers a significantly higher torque density and maximal flexibility.",
-      image: "/assets/images/productTest.png",
-      link: "#",
-      catalogue: "Catalogue Redulus⁴F",
-    },
-    {
-      title: "Drive Gearboxes GFA/GPT",
-      description:
-        "ZF Drive Gears are ideal driveline components for wheel, track or roller-driven mining applications and large construction machines.",
-      image: "/assets/images/productTest.png",
-      link: "#",
-      catalogue: "Catalogue ZF Drive Gears GFA/GPT",
-    },
-    {
-      title: "Drive Gearboxes GFA/GPT",
-      description:
-        "ZF Drive Gears are ideal driveline components for wheel, track or roller-driven mining applications and large construction machines.",
-      image: "/assets/images/productTest.png",
-      link: "#",
-      catalogue: "Catalogue ZF Drive Gears GFA/GPT",
-    },
-    {
-      title: "Drive Gearboxes GFA/GPT",
-      description:
-        "ZF Drive Gears are ideal driveline components for wheel, track or roller-driven mining applications and large construction machines.",
-      image: "/assets/images/productTest.png",
-      link: "#",
-      catalogue: "Catalogue ZF Drive Gears GFA/GPT",
-    },
-  ];
+  const [products, setProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (!error) setProducts(data || []);
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <div className="min-h-screen ">
       <CommonHeader
@@ -68,7 +51,7 @@ export default function ProductsPage() {
                 {product.description}
               </p>
 
-              <Link href="/products/productDetails">
+              <Link href={`/products/${product.slug}`}>
                 <button className="px-6 py-2 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-800 transition">
                   View Details
                 </button>
