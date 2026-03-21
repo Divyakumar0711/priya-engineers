@@ -1,3 +1,233 @@
+// "use client";
+// import Link from "next/link";
+// import React, { useState } from "react";
+// import { Cinzel } from "next/font/google";
+// import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
+// import Image from "next/image";
+
+// const cinzelFont = Cinzel({
+//   weight: "700",
+//   subsets: ["latin"],
+//   variable: "--font-cinzel",
+// });
+
+// type NavItem =
+//   | { name: string; href: string; hasDropdown?: false }
+//   | {
+//       name: string;
+//       hasDropdown: true;
+//       items: { name: string; href: string }[];
+//     };
+
+// const navigation: NavItem[] = [
+//   { name: "Home", href: "/" },
+//   { name: "About Us", href: "/about" },
+//   { name: "Products", href: "/products" },
+//   {
+//     name: "Services",
+//     hasDropdown: true,
+//     items: [
+//       { name: "Installation", href: "/services/installation" },
+//       { name: "Maintenance", href: "/services/maintenance" },
+//     ],
+//   },
+//   { name: "Contact Us", href: "/contact" },
+// ];
+
+// function Header() {
+//   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const [mobileDropdownStates, setMobileDropdownStates] = useState<{
+//     [key: string]: boolean;
+//   }>({});
+
+//   return (
+//     <div className="bg-white shadow-sm sticky top-0 z-50 mx-auto px-4 sm:px-6 lg:px-8">
+//       <div className="flex justify-between items-center h-20">
+
+//         {/* Logo */}
+//         <Link href="/" className="flex items-center space-x-3">
+//           <Image
+//             width={48}
+//             height={48}
+//             src={"/assets/icons/priya_logo.jpeg"}
+//             alt="Priya Engineers Logo"
+//             className="sm:h-16 sm:w-16 h-8 w-8 rounded-full object-cover"
+//           />
+//           <h1
+//             className={`text-2xl sm:text-5xl tracking-wide font-bold ${cinzelFont.className}`}
+//           >
+//             <span className="text-[rgb(225,6,0)]">PRIYA</span>{" "}
+//             <span className="text-[rgb(78,100,141)]">ENGINEERS</span>
+//           </h1>
+//         </Link>
+
+//         {/* Mobile Menu Icon */}
+//         <div className="flex items-center gap-4 md:hidden mr-2">
+//           <button onClick={() => setIsMobileMenuOpen(true)}>
+//             <Menu className="w-7 h-7 text-[rgb(78,100,141)]" />
+//           </button>
+//         </div>
+
+//         {/* Desktop Navigation */}
+//         <nav className="hidden md:flex items-center space-x-8 text-xl font-bold tracking-wide">
+
+//           {navigation.map((item) =>
+//             item.hasDropdown ? (
+//               <div
+//                 key={item.name}
+//                 onMouseEnter={() => setOpenDropdown(item.name)}
+//                 onMouseLeave={() => setOpenDropdown(null)}
+//               >
+//                 <DropdownMenu open={openDropdown === item.name}>
+//                   <DropdownMenuTrigger asChild>
+//                     <button
+//                       className="flex items-center text-[rgb(78,100,141)] hover:text-[rgb(225,6,0)]"
+//                       onClick={(e) => e.preventDefault()}
+//                     >
+//                       {item.name}
+//                       <ChevronDown className="ml-1 h-4 w-4" />
+//                     </button>
+//                   </DropdownMenuTrigger>
+
+//                   <DropdownMenuContent className="bg-[rgb(78,100,141)] rounded-md shadow-lg mt-2">
+//                     {item.items.map((subItem) => (
+//                       <DropdownMenuItem key={subItem.name} asChild>
+//                         <Link
+//                           href={subItem.href}
+//                           className="w-full px-6 py-3 text-lg text-white hover:text-[rgb(225,6,0)]"
+//                         >
+//                           {subItem.name}
+//                         </Link>
+//                       </DropdownMenuItem>
+//                     ))}
+//                   </DropdownMenuContent>
+//                 </DropdownMenu>
+//               </div>
+//             ) : (
+//               <Link
+//                 key={item.name}
+//                 href={item.href}
+//                 className="text-[rgb(78,100,141)] hover:text-[rgb(225,6,0)]"
+//               >
+//                 {item.name}
+//               </Link>
+//             )
+//           )}
+
+//           {/* Get Quote Button */}
+//           <Link
+//             href="/contact"
+//             className="bg-[rgb(225,6,0)] text-white px-5 py-2 rounded-md hover:opacity-90 transition"
+//           >
+//             Get Quote
+//           </Link>
+
+//         </nav>
+
+//         {/* Mobile Navigation */}
+//         {isMobileMenuOpen && (
+//           <div className="fixed top-0 right-0 w-full h-full bg-white text-[rgb(78,100,141)] z-50  shadow-lg transition-transform duration-300 md:hidden">
+
+//             {/* Mobile Header */}
+//             <div className="flex justify-between items-center p-4 border-b border-[rgb(78,100,141)]">
+//               <div className="flex items-center gap-2">
+//                 <Image
+//                   src={"/assets/icons/priya_logo.jpeg"}
+//                   alt="Priya Engineers Logo"
+//                   width={40}
+//                   height={40}
+//                   className="h-10 w-10 rounded-full object-cover"
+//                 />
+//                 <h1
+//                   className={`text-xl font-bold tracking-wide ${cinzelFont.className}`}
+//                 >
+//                   <span className="text-[rgb(225,6,0)]">PRIYA</span>{" "}
+//                   <span className="text-[rgb(78,100,141)]">ENGINEERS</span>
+//                 </h1>
+//               </div>
+//               <button onClick={() => setIsMobileMenuOpen(false)}>
+//                 <X className="w-7 h-7 text-[rgb(78,100,141)]" />
+//               </button>
+//             </div>
+
+//             {/* Mobile Menu Items */}
+//             <div className="flex flex-col gap-4 p-4 text-lg">
+//               {navigation.map((item) => {
+//                 if (item.hasDropdown) {
+//                   const isOpen = mobileDropdownStates[item.name] || false;
+//                   return (
+//                     <div key={item.name}>
+//                       <button
+//                         onClick={() =>
+//                           setMobileDropdownStates((prev) => ({
+//                             ...prev,
+//                             [item.name]: !prev[item.name],
+//                           }))
+//                         }
+//                         className="flex justify-between items-center w-full text-left hover:text-[rgb(225,6,0)]"
+//                       >
+//                         <span>{item.name}</span>
+//                         {isOpen ? (
+//                           <ChevronUp className="w-5 h-5" />
+//                         ) : (
+//                           <ChevronDown className="w-5 h-5" />
+//                         )}
+//                       </button>
+
+//                       {isOpen && (
+//                         <div className="mt-2 flex flex-col gap-2">
+//                           {item.items.map((subItem) => (
+//                             <Link
+//                               key={subItem.name}
+//                               href={subItem.href}
+//                               className="bg-[rgb(78,100,141)] text-white text-base px-4 py-2 rounded-md"
+//                               onClick={() => setIsMobileMenuOpen(false)}
+//                             >
+//                               {subItem.name}
+//                             </Link>
+//                           ))}
+//                         </div>
+//                       )}
+//                     </div>
+//                   );
+//                 } else {
+//                   return (
+//                     <Link
+//                       key={item.name}
+//                       href={item.href}
+//                       onClick={() => setIsMobileMenuOpen(false)}
+//                       className="hover:text-[rgb(225,6,0)]"
+//                     >
+//                       {item.name}
+//                     </Link>
+//                   );
+//                 }
+//               })}
+
+//               <Link
+//                 href="/get-quote"
+//                 className="block text-center bg-[rgb(225,6,0)] text-white py-3 rounded-md mt-4 hover:opacity-90 transition"
+//                 onClick={() => setIsMobileMenuOpen(false)}
+//               >
+//                 Get Quote
+//               </Link>
+//             </div>
+//           </div>
+//         )}
+
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Header;
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -16,8 +246,6 @@ const cinzelFont = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
 });
-
-
 
 type NavItem =
   | { name: string; href: string; hasDropdown?: false }
@@ -52,7 +280,6 @@ function Header() {
   return (
     <div className="bg-white shadow-sm sticky top-0 z-50 mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-20">
-
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
           <Image
@@ -79,7 +306,6 @@ function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 text-xl font-bold tracking-wide">
-
           {navigation.map((item) =>
             item.hasDropdown ? (
               <div
@@ -120,7 +346,7 @@ function Header() {
               >
                 {item.name}
               </Link>
-            )
+            ),
           )}
 
           {/* Get Quote Button */}
@@ -130,13 +356,11 @@ function Header() {
           >
             Get Quote
           </Link>
-
         </nav>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="fixed top-0 right-0 w-full h-full bg-white text-[rgb(78,100,141)] z-50  shadow-lg transition-transform duration-300 md:hidden">
-
             {/* Mobile Header */}
             <div className="flex justify-between items-center p-4 border-b border-[rgb(78,100,141)]">
               <div className="flex items-center gap-2">
@@ -214,7 +438,7 @@ function Header() {
               })}
 
               <Link
-                href="/get-quote"
+                href="/contact"
                 className="block text-center bg-[rgb(225,6,0)] text-white py-3 rounded-md mt-4 hover:opacity-90 transition"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -223,7 +447,6 @@ function Header() {
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

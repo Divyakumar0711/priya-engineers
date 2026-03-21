@@ -58,7 +58,7 @@ export default function ProductsPage() {
             >
               {/* Image */}
               <div className="w-full md:w-1/2">
-                <div className="relative w-full h-[320px]">
+                <div className="relative w-full h-80">
                   <Image
                     src={product.image}
                     alt={product.title}
@@ -90,3 +90,4 @@ export default function ProductsPage() {
     </div>
   );
 }
+
