@@ -52,7 +52,7 @@ export default function WelcomeSection() {
           {/* ── Left: Logo + heading + stats ── */}
           <div className="relative flex flex-col items-center space-y-4">
             <Image
-              src="/assets/images/25_years_logo.png"
+              src="https://emzgcybufgvtwoogwczj.supabase.co/storage/v1/object/public/images/25_years_logo.png"
               alt="25 Years of Excellence - Priya Engineers"
               width={500}
               height={500}
