@@ -350,12 +350,12 @@ function Header() {
           )}
 
           {/* Get Quote Button */}
-          <Link
+          {/* <Link
             href="/contact"
             className="bg-[rgb(225,6,0)] text-white px-5 py-2 rounded-md hover:opacity-90 transition"
           >
             Get Quote
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Mobile Navigation */}
@@ -437,13 +437,13 @@ function Header() {
                 }
               })}
 
-              <Link
+              {/* <Link
                 href="/contact"
                 className="block text-center bg-[rgb(225,6,0)] text-white py-3 rounded-md mt-4 hover:opacity-90 transition"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get Quote
-              </Link>
+              </Link> */}
             </div>
           </div>
         )}
