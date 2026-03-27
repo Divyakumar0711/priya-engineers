@@ -3,52 +3,55 @@
 import Image from "next/image";
 import { Cinzel } from "next/font/google";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
+import Link from "next/link";
 
 // ─── Font ─────────────────────────────────────────────────────────────────────
-const cinzelFont = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
+const cinzelFont = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const STATS = [
   { value: "500+", label: "Projects Delivered", color: "text-[rgb(225,6,0)]" },
-  { value: "100+", label: "Industry Clients",   color: "text-[rgb(78,100,141)]" },
-  { value: "15+",  label: "Product Variants",   color: "text-[rgb(225,6,0)]" },
-];
-
-const PRODUCTS = [
-  "Transmission Shafts",
-  "Screw Shafts",
-  "Gear Shafts",
-  "Spline Shafts",
-  "Pinion Shafts",
-  "Coupling Shafts",
-  "Hollow Shafts",
-  "Step Shafts",
-  "Worm Shafts",
-  "Keyway Shafts",
-  "Flanged Shafts",
-  "Rotor Shafts",
-  "Pump Shafts",
-  "Motor Shafts",
-  "Customised Machinery Parts",
+  { value: "100+", label: "Industry Clients", color: "text-[rgb(78,100,141)]" },
+  { value: "15+", label: "Product Variants", color: "text-[rgb(225,6,0)]" },
 ];
 
 const WHY_US = [
-  "Custom manufacturing from drawing, sample, or specification",
-  "Alloy steel, EN series & stainless steel grades available",
-  "Tolerances as tight as ±0.01mm with CNC precision",
-  "Bulk & prototype orders accepted — fast turnaround",
-  "25+ years of trusted supply to Gujarat industries",
-  "Direct manufacturer — no middlemen, competitive pricing",
+  "ISO-grade CNC turning & cylindrical grinding under one roof",
+  "Material certificates available — alloy steel, EN8, EN24, SS grades",
+  "Reverse engineering from worn or broken sample parts accepted",
+  "Pan-India dispatch with packaging suited for long-distance transport",
+  "Single point of contact from order to delivery — no subcontracting",
+  "Repeat order consistency guaranteed — same dimensions every batch",
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function WelcomeSection() {
+  const [products, setProducts] = useState<{ title: string; slug: string }[]>(
+    [],
+  );
+
+  useEffect(() => {
+    async function fetchTitles() {
+      const { data } = await supabase
+        .from("products")
+        .select("title, slug")
+        .order("title", { ascending: true });
+
+      if (data)
+        setProducts(data.map((p) => ({ title: p.title, slug: p.slug })));
+    }
+    fetchTitles();
+  }, []);
+
   return (
     <section className="pt-10 sm:pt-16 lg:pt-20 bg-white">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-
           {/* ── Left: Logo + heading + stats ── */}
           <div className="relative flex flex-col items-center space-y-4">
             <Image
@@ -73,7 +76,9 @@ export default function WelcomeSection() {
                 <React.Fragment key={stat.label}>
                   {i > 0 && <div className="border-l border-gray-200" />}
                   <div>
-                    <p className={`text-2xl sm:text-3xl font-bold ${stat.color} ${cinzelFont.className}`}>
+                    <p
+                      className={`text-2xl sm:text-3xl font-bold ${stat.color} ${cinzelFont.className}`}
+                    >
                       {stat.value}
                     </p>
                     <p className="text-xs sm:text-sm text-gray-500 font-medium tracking-wide">
@@ -108,20 +113,22 @@ export default function WelcomeSection() {
               }
             >
               <div className="max-h-full overflow-y-auto px-2 sm:px-3 text-left scrollbar-hide tracking-wide">
-
-                {/* About paragraphs */}
                 <p className="text-base sm:text-lg text-black mb-4 leading-relaxed">
-                  Founded in Ahmedabad, Priya Engineers is a trusted manufacturer and
-                  supplier of All Type Transmission Shafts, Screw Shafts &amp; Machinery
-                  Parts — serving automotive OEMs, heavy industry, and machinery makers
-                  across India for over 25 years.
+                  Priya Engineers manufactures and supplies transmission shafts,
+                  screw shafts, gear shafts, spline shafts, hollow shafts, and
+                  custom machinery parts for automotive OEMs, heavy industry,
+                  and machinery manufacturers across India. With over 25 years
+                  of experience, we deliver precision-engineered components
+                  built to your drawing, sample, or specification.
                 </p>
 
                 <p className="text-base sm:text-lg text-black mb-4 leading-relaxed">
-                  Our Amraiwadi facility on N.H. No.-8 runs CNC turning centers and
-                  cylindrical grinding machines, backed by strict in-house quality
-                  inspection — giving you consistent dimensions, on-time delivery, and
-                  full traceability on every order.
+                  Our CNC turning centers and cylindrical grinding machines
+                  achieve tolerances as tight as ±0.01mm across alloy steel, EN
+                  series, and stainless steel grades. Every shaft — whether a
+                  worm shaft, pump shaft, motor shaft, or pinion shaft —
+                  undergoes strict in-house quality inspection before dispatch,
+                  from single prototypes to bulk orders of 500+ pieces.
                 </p>
 
                 {/* What We Manufacture */}
@@ -130,14 +137,17 @@ export default function WelcomeSection() {
                     What We Manufacture
                   </p>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
-                    {PRODUCTS.map((product) => (
-                      <div
-                        key={product}
-                        className="flex items-center gap-1.5 text-sm text-gray-700"
+                    {products.map((product) => (
+                      <Link
+                        key={product.slug}
+                        href={`/products/${product.slug}`}
+                        className="flex items-center gap-1.5 text-sm text-gray-700 hover:text-[rgb(225,6,0)] transition-colors duration-200 group"
                       >
-                        <span className="text-[rgb(225,6,0)] font-bold text-xs">▶</span>
-                        {product}
-                      </div>
+                        <span className="text-[rgb(225,6,0)] font-bold text-xs group-hover:translate-x-0.5 transition-transform duration-200">
+                          ▶
+                        </span>
+                        {product.title}
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -153,7 +163,9 @@ export default function WelcomeSection() {
                         key={point}
                         className="flex items-start gap-2 text-sm sm:text-base text-gray-700"
                       >
-                        <span className="mt-0.5 text-[rgb(225,6,0)] font-bold">✓</span>
+                        <span className="mt-0.5 text-[rgb(225,6,0)] font-bold">
+                          ✓
+                        </span>
                         {point}
                       </li>
                     ))}
@@ -175,11 +187,9 @@ export default function WelcomeSection() {
                     Get a Quote
                   </a>
                 </div>
-
               </div>
             </ContainerScroll>
           </div>
-
         </div>
       </div>
     </section>

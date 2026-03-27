@@ -8,7 +8,10 @@ import { Cinzel } from "next/font/google";
 import { supabase } from "@/lib/supabaseClient";
 
 // ─── Font ─────────────────────────────────────────────────────────────────────
-const cinzelFont = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
+const cinzelFont = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const BUCKET = "product-images";
@@ -52,7 +55,7 @@ async function getMainImageForProduct(slug: string): Promise<string> {
       (f) =>
         f.name &&
         f.name !== ".emptyFolderPlaceholder" &&
-        /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(f.name)
+        /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(f.name),
     );
 
     if (!imageFile) return "";
@@ -104,7 +107,7 @@ export default function ProductsSection() {
                 : "");
 
             return { ...product, resolvedImage };
-          })
+          }),
         );
 
         setCards(cardsWithImages);
@@ -122,7 +125,6 @@ export default function ProductsSection() {
   return (
     <section className="py-10 sm:py-16 lg:py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* ── Section Header ── */}
         <div className="relative text-center py-10 sm:py-16 lg:py-20 tracking-wide">
           <h3
@@ -158,11 +160,15 @@ export default function ProductsSection() {
         {/* ── Error State ── */}
         {!loading && error && (
           <div className="flex flex-col items-center justify-center p-12 gap-3">
-            <p className="text-red-500 font-semibold text-sm">Failed to load products</p>
+            <p className="text-red-500 font-semibold text-sm">
+              Failed to load products
+            </p>
             <pre className="text-xs text-red-400 bg-red-50 border border-red-200 rounded p-4 max-w-lg w-full whitespace-pre-wrap">
               {error}
             </pre>
-            <p className="text-gray-400 text-xs">Check browser console for full details</p>
+            <p className="text-gray-400 text-xs">
+              Check browser console for full details
+            </p>
           </div>
         )}
 
@@ -174,13 +180,13 @@ export default function ProductsSection() {
                 key={card.slug}
                 className="bg-white shadow-xl rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 flex flex-col"
               >
-                <div className="relative h-72 w-full bg-gray-100">
+                <div className="relative h-72 w-full bg-white">
                   {card.resolvedImage ? (
                     <Image
                       src={card.resolvedImage}
                       alt={card.title}
                       fill
-                      className="object-cover rounded-t-2xl"
+                      className="object-contain rounded-t-2xl p-3"
                       quality={100}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
@@ -226,7 +232,6 @@ export default function ProductsSection() {
             </Link>
           </div>
         )}
-
       </div>
     </section>
   );
