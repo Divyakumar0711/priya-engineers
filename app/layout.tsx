@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import { Raleway } from "next/font/google";
 import Footer from "@/components/Footer";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const ralewayFont = Raleway({
   weight: "400",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en" className={ralewayFont.className}>
       <body>
         <Header />
+        <LoadingSpinner />
         {children}
         <Footer />
       </body>
