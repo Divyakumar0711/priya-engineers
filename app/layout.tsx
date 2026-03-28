@@ -35,7 +35,16 @@
 // };
 import type { Metadata } from "next";
 import "./globals.css"; // keep whatever you already import here
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Raleway } from "next/font/google";
 
+
+const ralewayFont = Raleway({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-raleway",
+});
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   // ── Basic ──
@@ -136,7 +145,12 @@ const jsonLd = {
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
-      "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
     ],
     opens: "09:00",
     closes: "18:00",
@@ -155,7 +169,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={ralewayFont.className}>
       <head>
         {/* JSON-LD Structured Data for Google */}
         <script
@@ -164,7 +178,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
