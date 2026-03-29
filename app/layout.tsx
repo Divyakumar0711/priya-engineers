@@ -1,43 +1,10 @@
-// import Header from "@/components/Header";
-// import "./globals.css";
-// import { Raleway } from "next/font/google";
-// import Footer from "@/components/Footer";
-// import LoadingSpinner from "@/components/LoadingSpinner";
 
-// const ralewayFont = Raleway({
-//   weight: "400",
-//   subsets: ["latin"],
-//   variable: "--font-raleway",
-// });
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en" className={ralewayFont.className}>
-//       <body>
-//         <Header />
-//         <LoadingSpinner />
-//         {children}
-//         <Footer />
-//       </body>
-//     </html>
-//   );
-// }
-// export const metadata = {
-//   title: "Priya Engineers",
-//   description: "Industrial Shaft Manufacturer",
-//   icons: {
-//     icon: "/icon.png",
-//   },
-// };
 import type { Metadata } from "next";
 import "./globals.css"; // keep whatever you already import here
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Raleway } from "next/font/google";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 
 const ralewayFont = Raleway({
@@ -49,13 +16,14 @@ const ralewayFont = Raleway({
 export const metadata: Metadata = {
   // ── Basic ──
   title: {
-    default: "Transmission Shaft Manufacturer in Ahmedabad | Priya Engineers",
+    default: "Shaft Manufacturer in Ahmedabad | Priya Engineers",
     template: "%s | Priya Engineers",
   },
   description:
     "Priya Engineers – Ahmedabad-based CNC manufacturer of transmission shafts, screw shafts, gear shafts, spline shafts & precision machinery parts. 25+ years experience, ±0.01mm tolerance, direct manufacturer pricing. Call +91 98257 90413.",
 
   keywords: [
+    "shaft manufacture in Ahmedabad",
     "transmission shaft manufacturer Ahmedabad",
     "screw shaft supplier Gujarat",
     "gear shaft manufacturer India",
@@ -85,7 +53,7 @@ export const metadata: Metadata = {
 
   // ── Open Graph (WhatsApp, LinkedIn, Facebook previews) ──
   openGraph: {
-    title: "Transmission Shaft Manufacturer in Ahmedabad | Priya Engineers",
+    title: "Shaft Manufacturer in Ahmedabad | Priya Engineers",
     description:
       "CNC-precision transmission shafts, screw shafts & machinery parts. 500+ projects, 100+ industry clients, 25+ years. Based in Amraiwadi, Ahmedabad, Gujarat.",
     url: "https://www.priyaengineers.com",
@@ -179,6 +147,8 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
+             <LoadingSpinner />
+
         {children}
         <Footer />
       </body>
