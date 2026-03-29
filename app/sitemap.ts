@@ -2,13 +2,15 @@ import { supabase } from "@/lib/supabaseClient";
 import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { data: products } = await supabase
+  const { data: products, error } = await supabase
     .from("products")
-    .select("slug, updated_at");
+    .select("slug");
+
+  console.log("Sitemap products:", products, "Error:", error); // debug log
 
   const productUrls: MetadataRoute.Sitemap = (products ?? []).map((p) => ({
     url: `https://www.priyaengineers.com/products/${p.slug}`,
-    lastModified: p.updated_at ? new Date(p.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
